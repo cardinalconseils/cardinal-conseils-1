@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import logoImage from '../assets/logo.png';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,9 +81,18 @@ const Navigation: React.FC = () => {
             {/* Logo */}
             <Link to={language === 'en' ? '/en' : '/'} className="relative z-10">
               <img 
-                src="/2025_Cardinal_Conseils_LOGO_BLK_200x48.png" 
+                src={logoImage} 
                 alt="Cardinal Conseils" 
                 className="h-12 w-auto"
+                onError={(e) => {
+                  console.error('Assets logo failed, trying public fallback...');
+                  e.currentTarget.src = '/cardinal-logo.png';
+                  e.currentTarget.onError = () => {
+                    console.error('All logos failed');
+                    e.currentTarget.style.border = '2px solid red';
+                  };
+                }}
+                onLoad={() => console.log('Logo loaded successfully from assets!')}
               />
             </Link>
 
