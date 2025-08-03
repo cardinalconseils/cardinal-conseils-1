@@ -1,149 +1,134 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Lightbulb,
-  Rocket,
-  Zap,
+  MapPin,
+  Cog,
+  Bot,
+  Settings,
   BarChart3,
+  Users,
   CheckCircle,
-  Clock,
-  ChevronRight,
-  TrendingUp
+  ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const ServicesPackages: React.FC = () => {
   const { language } = useLanguage();
 
-  const packages = [
+  const services = [
     {
-      icon: Lightbulb,
-      name: language === 'fr' ? 'EXPLORATEUR' : 'EXPLORER',
-      tagline: language === 'fr' ? 'Pour Dirigeants Visionnaires' : 'For Visionary Leaders',
-      ideal: language === 'fr'
-        ? "Vous êtes convaincu du potentiel de l'IA mais vous avez besoin d'une feuille de route claire pour convaincre votre conseil d'administration ou vos investisseurs."
-        : "You're convinced of AI's potential but need a clear roadmap to convince your board of directors or investors.",
-      includes: language === 'fr' ? [
-        'Diagnostic Flash complet (7 jours)',
-        'Roadmap stratégique 12 mois avec budget détaillé',
-        'Présentation exécutive PowerPoint (30 slides)',
-        'Session de questions-réponses avec votre équipe (2h)',
-        'Matrice ROI avec scénarios conservateur/optimiste/agressif'
+      icon: MapPin,
+      emoji: '🧭',
+      number: '1',
+      name: language === 'fr' ? 'Cartographie & Priorisation des Processus' : 'Process Mapping & Prioritization',
+      description: language === 'fr'
+        ? "Nous travaillons avec votre équipe pour visualiser comment les choses fonctionnent vraiment aujourd'hui—qui fait quoi, quand, et pourquoi ça plante. Ensuite, nous identifions les 1-2 goulots d'étranglement où l'automatisation aura le plus gros impact."
+        : "We work with your team to visualize how things really work today—who does what, when, and why it breaks. Then we identify the 1–2 bottlenecks where automation will have the biggest impact.",
+      deliverables: language === 'fr' ? [
+        'Cartes visuelles des processus',
+        'Analyse des goulots d\'étranglement',
+        'Feuille de route d\'automatisation'
       ] : [
-        'Complete Flash Diagnosis (7 days)',
-        '12-month strategic roadmap with detailed budget',
-        'Executive PowerPoint presentation (30 slides)',
-        'Q&A session with your team (2h)',
-        'ROI matrix with conservative/optimistic/aggressive scenarios'
+        'Visual process maps',
+        'Bottleneck analysis',
+        'Automation roadmap'
       ],
-      guarantee: language === 'fr'
-        ? "Si les opportunités identifiées ne représentent pas un ROI potentiel d'au moins 150% sur 24 mois, nous remboursons 50% des honoraires."
-        : "If identified opportunities don't represent a potential ROI of at least 150% over 24 months, we refund 50% of fees.",
-      delivery: language === 'fr' ? '21 jours ouvrables maximum' : '21 business days maximum',
       color: 'from-blue-500 to-blue-600'
     },
     {
-      icon: Rocket,
-      name: language === 'fr' ? 'INITIATEUR' : 'INITIATOR',
-      tagline: language === 'fr' ? 'Pour PME Prêtes à Bouger' : 'For SMEs Ready to Move',
-      ideal: language === 'fr'
-        ? "Votre budget est approuvé, vous avez l'appui de la direction, et vous voulez passer à l'action avec les meilleurs partenaires du marché."
-        : "Your budget is approved, you have management support, and you want to take action with the best partners in the market.",
-      includes: language === 'fr' ? [
-        'Tout le package Explorateur PLUS :',
-        'Processus RFI/RFP complet avec 5-7 fournisseurs',
-        'Négociation assistée des contrats',
-        'Vendor scorecard détaillé avec recommandation finale',
-        'Due diligence technique et financière',
-        'Support juridique pour révision contractuelle',
-        'Plan de mise en œuvre détaillé avec timeline'
+      icon: Cog,
+      emoji: '⚙️',
+      number: '2',
+      name: language === 'fr' ? 'Conception & Implémentation d\'Automatisation' : 'Automation Design & Implementation',
+      description: language === 'fr'
+        ? "Nous concevons et construisons des flux de travail épurés en utilisant des outils comme Make.com, Zapier, n8n, et plus. Que ce soit pour réduire les tâches administratives ou accélérer les approbations internes, nous construisons des automatisations que votre équipe utilisera vraiment."
+        : "We design and build lean workflows using tools like Make.com, Zapier, n8n, and more. Whether it's reducing admin tasks or speeding up internal approvals, we build automations your team will actually use.",
+      deliverables: language === 'fr' ? [
+        'Automatisations & intégrations personnalisées',
+        'Documentation + transfert',
+        'Configuration nécessitant peu de maintenance'
       ] : [
-        'Everything in Explorer package PLUS:',
-        'Complete RFI/RFP process with 5-7 suppliers',
-        'Assisted contract negotiation',
-        'Detailed vendor scorecard with final recommendation',
-        'Technical and financial due diligence',
-        'Legal support for contract review',
-        'Detailed implementation plan with timeline'
+        'Custom automations & integrations',
+        'Documentation + handoff',
+        'Low-maintenance setup'
       ],
-      savings: language === 'fr'
-        ? "Notre processus de négociation structuré vise à optimiser vos contrats technologiques grâce à une analyse comparative rigoureuse."
-        : "Our structured negotiation process aims to optimize your technology contracts through rigorous comparative analysis.",
-      delivery: language === 'fr' ? '8 semaines ouvrables maximum' : '8 business weeks maximum',
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      icon: Zap,
-      name: language === 'fr' ? 'DÉPLOYEUR' : 'DEPLOYER',
-      tagline: language === 'fr' ? 'PMO Complet Jusqu\'à Production' : 'Complete PMO to Production',
-      ideal: language === 'fr'
-        ? "Projet approuvé, fournisseurs sélectionnés, vous voulez un chef d'orchestre expérimenté pour garantir le succès du déploiement."
-        : "Project approved, suppliers selected, you want an experienced conductor to guarantee deployment success.",
-      includes: language === 'fr' ? [
-        'Tout des packages précédents',
-        'PMO dédié avec méthodologie Lean-Agile',
-        'Revues de sprint bi-hebdomadaires',
-        'Gestion du changement et formation utilisateurs',
-        'Tests d\'acceptation utilisateur (UAT)',
-        'Mise en production sécurisée',
-        'Documentation complète livrée'
-      ] : [
-        'Everything from previous packages',
-        'Dedicated PMO with Lean-Agile methodology',
-        'Bi-weekly sprint reviews',
-        'Change management and user training',
-        'User acceptance testing (UAT)',
-        'Secure production deployment',
-        'Complete documentation delivered'
-      ],
-      benefits: language === 'fr' ? [
-        'Alignement sur les résultats vs honoraires fixes',
-        'Flexibilité d\'ajustement selon évolution projet',
-        'Engagement mutuel sur la réussite',
-        'Pas de mauvaises surprises budgétaires'
-      ] : [
-        'Alignment on results vs fixed fees',
-        'Flexibility to adjust according to project evolution',
-        'Mutual commitment to success',
-        'No budget surprises'
-      ],
-      minimum: language === 'fr' ? 'minimum 6 mois' : 'minimum 6 months',
       color: 'from-green-500 to-green-600'
     },
     {
-      icon: BarChart3,
-      name: language === 'fr' ? 'OPTIMISATEUR' : 'OPTIMIZER',
-      tagline: language === 'fr' ? 'IA Déjà en Place' : 'AI Already in Place',
-      ideal: language === 'fr'
-        ? "Vous avez déjà des systèmes IA déployés mais vous voulez maximiser leur performance et ROI tout en préparant la prochaine phase d'évolution."
-        : "You already have AI systems deployed but want to maximize their performance and ROI while preparing the next evolution phase.",
-      includes: language === 'fr' ? [
-        'Audit complet des systèmes existants',
-        'Monitoring performance 24/7',
-        'Fine-tuning des modèles selon usage réel',
-        'Rapports mensuels d\'impact business',
-        'Veille technologique et recommandations',
-        'Planification des évolutions futures'
+      icon: Bot,
+      emoji: '🤖',
+      number: '3',
+      name: language === 'fr' ? 'Intégration d\'Agents IA & LLM' : 'AI Agent & LLM Integration',
+      description: language === 'fr'
+        ? "Des assistants IA aux formulaires intelligents et aux flux de travail GPT personnalisés, nous connectons vos opérations avec la puissance des grands modèles de langage—sans vous noyer dans la complexité."
+        : "From AI assistants to smart forms and custom GPT workflows, we connect your operations with the power of large language models—without drowning you in complexity.",
+      useCases: language === 'fr' ? [
+        'Assistants de connaissances internes',
+        'Triage d\'emails & génération de brouillons',
+        'Bots de support, d\'intégration et de devis'
       ] : [
-        'Complete audit of existing systems',
-        '24/7 performance monitoring',
-        'Model fine-tuning based on real usage',
-        'Monthly business impact reports',
-        'Technology watch and recommendations',
-        'Future evolution planning'
+        'Internal knowledge assistants',
+        'Email triage & draft generation',
+        'Support, onboarding, and quoting bots'
       ],
-      objectives: language === 'fr' ? [
-        'Amélioration performance modèles : +15-30%',
-        'Réduction coûts opérationnels : +10-20%',
-        'Nouvelles opportunités : 2-3/trimestre',
-        'Conformité réglementaire : 100%'
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      icon: Settings,
+      emoji: '🧰',
+      number: '4',
+      name: language === 'fr' ? 'Stratégie & Configuration de Stack Technologique' : 'Tool Stack Strategy & Setup',
+      description: language === 'fr'
+        ? "Nous vous aidons à sélectionner, configurer et connecter les bons outils pour votre stade. Que ce soit votre premier CRM, un système de tickets interne, ou un tableau de bord partagé, nous vous configurerons avec des outils qui évoluent—pas qui créent plus de travail."
+        : "We help you select, configure, and connect the right tools for your stage. Whether it's your first CRM, an internal ticketing system, or a shared dashboard, we'll set you up with tools that scale—not create more work.",
+      deliverables: language === 'fr' ? [
+        'Audit de fournisseurs/outils',
+        'Installation & configuration',
+        'Intégration du personnel + SOPs'
       ] : [
-        'Model performance improvement: +15-30%',
-        'Operational cost reduction: +10-20%',
-        'New opportunities: 2-3/quarter',
-        'Regulatory compliance: 100%'
+        'Vendor/tool audit',
+        'Setup & configuration',
+        'Staff onboarding + SOPs'
       ],
       color: 'from-orange-500 to-orange-600'
+    },
+    {
+      icon: BarChart3,
+      emoji: '📊',
+      number: '5',
+      name: language === 'fr' ? 'Surveillance, Métriques & Documentation' : 'Monitoring, Metrics & Documentation',
+      description: language === 'fr'
+        ? "Nous ne disparaissons pas après la construction. Nous vous aiderons à suivre ce qui fonctionne, ajuster ce qui ne fonctionne pas, et vous laisser avec une documentation que votre équipe peut vraiment suivre."
+        : "We don't ghost you after the build. We'll help you track what's working, tweak what's not, and leave you with documentation your team can actually follow.",
+      deliverables: language === 'fr' ? [
+        'Tableaux de bord personnalisés (Retool, Lowdefy, Notion, etc.)',
+        'Formation légère',
+        'SOPs internes & guides libre-service'
+      ] : [
+        'Custom dashboards (Retool, Lowdefy, Notion, etc.)',
+        'Lightweight training',
+        'Internal SOPs & self-serve guides'
+      ],
+      color: 'from-teal-500 to-teal-600'
+    },
+    {
+      icon: Users,
+      emoji: '🧪',
+      number: '6',
+      name: language === 'fr' ? 'Sprints Stratégiques & Ateliers' : 'Strategy Sprints & Workshops',
+      description: language === 'fr'
+        ? "Besoin de réfléchir à la préparation à l'IA, à la priorisation des flux de travail, ou au triage des processus entre départements ? Nous offrons des sessions stratégiques courtes et à fort impact adaptées à l'endroit où vous êtes bloqués."
+        : "Need to think through AI readiness, workflow prioritization, or process triage across departments? We offer short, high-impact strategy sessions tailored to where you're stuck.",
+      format: language === 'fr' ? [
+        'Sessions d\'une demi-journée ou d\'une journée complète',
+        'Virtuel ou en personne (Laurentides / Grand Montréal)',
+        'Axé sur les résultats, collaboratif, sans jargon'
+      ] : [
+        'Half-day or full-day sessions',
+        'Virtual or in-person (Laurentides / Greater Montreal)',
+        'Outcome-focused, collaborative, no jargon'
+      ],
+      color: 'from-red-500 to-red-600'
     }
   ];
 
@@ -159,112 +144,86 @@ const ServicesPackages: React.FC = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
             {language === 'fr' 
-              ? 'Packages Adaptés à Votre Niveau de Maturité IA'
-              : 'Packages Adapted to Your AI Maturity Level'}
+              ? 'Nos Services'
+              : 'Our Services'}
           </h2>
-          <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
-            {language === 'fr'
-              ? 'Nos forfaits sont conçus pour accompagner votre entreprise selon son niveau de préparation et ses ambitions en intelligence artificielle.'
-              : 'Our packages are designed to support your business according to its level of preparation and ambitions in artificial intelligence.'}
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {packages.map((pkg, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <div className={`h-2 bg-gradient-to-r ${pkg.color}`} />
+              <div className={`h-1 bg-gradient-to-r ${service.color}`} />
               <div className="p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${pkg.color} rounded-xl flex items-center justify-center`}>
-                    <pkg.icon className="h-8 w-8 text-white" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center text-2xl`}>
+                    {service.emoji}
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-neutral-900">{pkg.name}</h3>
-                    <p className="text-sm text-neutral-600">{pkg.tagline}</p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-sm font-semibold text-neutral-500">
+                        {service.number}.
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-neutral-900 leading-tight">{service.name}</h3>
                   </div>
                 </div>
 
-                {pkg.minimum && (
-                  <p className="text-sm text-neutral-600 mb-4">{pkg.minimum}</p>
-                )}
+                <p className="text-neutral-700 mb-6 text-sm leading-relaxed">{service.description}</p>
 
-                <p className="text-neutral-700 mb-6">{pkg.ideal}</p>
-
-                <div className="space-y-4 mb-6">
-                  <h4 className="font-semibold text-neutral-900">
-                    {language === 'fr' ? 'Ce qui est inclus :' : 'What\'s included:'}
-                  </h4>
-                  <ul className="space-y-2">
-                    {pkg.includes.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start gap-3">
-                        <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-neutral-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {pkg.guarantee && (
-                  <div className="bg-green-50 rounded-lg p-4 mb-6">
-                    <p className="text-sm text-green-800">
-                      <strong>{language === 'fr' ? 'Garantie :' : 'Guarantee:'}</strong> {pkg.guarantee}
-                    </p>
-                  </div>
-                )}
-
-                {pkg.savings && (
-                  <div className="bg-blue-50 rounded-lg p-4 mb-6">
-                    <p className="text-sm text-blue-800">
-                      <strong>{language === 'fr' ? 'Économies :' : 'Savings:'}</strong> {pkg.savings}
-                    </p>
-                  </div>
-                )}
-
-                {pkg.benefits && (
-                  <div className="space-y-2 mb-6">
+                {service.deliverables && (
+                  <div className="space-y-3 mb-6">
                     <h4 className="font-semibold text-neutral-900 text-sm">
-                      {language === 'fr' ? 'Avantages :' : 'Benefits:'}
+                      {language === 'fr' ? 'Livrables :' : 'Deliverables:'}
                     </h4>
-                    <ul className="space-y-1">
-                      {pkg.benefits.map((benefit, benIndex) => (
-                        <li key={benIndex} className="flex items-start gap-2">
+                    <ul className="space-y-2">
+                      {service.deliverables.map((item, itemIndex) => (
+                        <li key={itemIndex} className="flex items-start gap-3">
+                          <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-neutral-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {service.useCases && (
+                  <div className="space-y-3 mb-6">
+                    <h4 className="font-semibold text-neutral-900 text-sm">
+                      {language === 'fr' ? 'Cas d\'usage :' : 'Use Cases:'}
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.useCases.map((useCase, useCaseIndex) => (
+                        <li key={useCaseIndex} className="flex items-start gap-3">
                           <ChevronRight className="h-4 w-4 text-cardinal-600 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-neutral-700">{benefit}</span>
+                          <span className="text-sm text-neutral-700">{useCase}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
 
-                {pkg.objectives && (
-                  <div className="space-y-2 mb-6">
+                {service.format && (
+                  <div className="space-y-3">
                     <h4 className="font-semibold text-neutral-900 text-sm">
-                      {language === 'fr' ? 'Objectifs visés :' : 'Target objectives:'}
+                      {language === 'fr' ? 'Format :' : 'Format:'}
                     </h4>
-                    <ul className="space-y-1">
-                      {pkg.objectives.map((objective, objIndex) => (
-                        <li key={objIndex} className="flex items-start gap-2">
-                          <TrendingUp className="h-4 w-4 text-cardinal-600 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-neutral-700">{objective}</span>
+                    <ul className="space-y-2">
+                      {service.format.map((formatItem, formatIndex) => (
+                        <li key={formatIndex} className="flex items-start gap-3">
+                          <ChevronRight className="h-4 w-4 text-cardinal-600 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-neutral-700">{formatItem}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
-
-                <div className="pt-4 border-t border-neutral-200">
-                  <p className="text-sm text-neutral-600">
-                    <Clock className="h-4 w-4 inline mr-1" />
-                    {language === 'fr' ? 'Délai :' : 'Delivery:'} {pkg.delivery}
-                  </p>
-                </div>
               </div>
             </motion.div>
           ))}
@@ -275,15 +234,15 @@ const ServicesPackages: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-16 text-center"
         >
           <p className="text-lg text-neutral-700 mb-8">
             {language === 'fr'
-              ? 'Pour obtenir une tarification personnalisée adaptée à vos besoins spécifiques, contactez-nous pour une consultation gratuite.'
-              : 'To get personalized pricing tailored to your specific needs, contact us for a free consultation.'}
+              ? 'Prêt à simplifier vos processus ? Parlons de ce qui vous ralentit.'
+              : 'Ready to simplify your processes? Let\'s talk about what\'s slowing you down.'}
           </p>
-          <a href="/contact" className="btn-primary">
-            {language === 'fr' ? 'Demander une soumission' : 'Request a Quote'}
+          <a href="/contact" className="btn-primary text-lg px-8 py-4">
+            {language === 'fr' ? '📅 Réserver un Appel Découverte' : '📅 Book a Discovery Call'}
           </a>
         </motion.div>
       </div>

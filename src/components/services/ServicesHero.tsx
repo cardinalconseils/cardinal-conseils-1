@@ -7,20 +7,20 @@ const ServicesHero: React.FC = () => {
 
   const content = {
     title: language === 'fr' 
-      ? "Automatisation IA pour PME Québécoises | Déploiement Rapide Sans Risque | Gestion de Projet Ultra-Structurée"
-      : "AI Automation for Quebec SMEs | Risk-Free Rapid Deployment | Ultra-Structured Project Management",
+      ? "Ce Que Nous Faisons (et Faisons Bien)"
+      : "What We Do (and Do Well)",
     subtitle: language === 'fr'
-      ? "Permettez à votre entreprise québécoise de déployer des solutions d'intelligence artificielle en quelques semaines, avec une méthode éprouvée et des coûts maîtrisés."
-      : "Enable your Quebec business to deploy artificial intelligence solutions in weeks, with a proven method and controlled costs.",
+      ? "Nous sommes une équipe compacte avec des compétences approfondies en automatisation, IA et réflexion systémique."
+      : "We're a lean team with deep skills in automation, AI, and systems thinking.",
     description: language === 'fr'
-      ? "Vous dirigez une PME québécoise et vous savez que l'IA peut transformer vos opérations, mais vous ne savez pas par où commencer ? Cardinal Conseils orchestre l'intégration complète de l'intelligence artificielle dans votre entreprise grâce à une approche structurée, des partenariats stratégiques et une documentation automatisée qui élimine les risques."
-      : "You lead a Quebec SME and know that AI can transform your operations, but don't know where to start? Cardinal Conseils orchestrates the complete integration of artificial intelligence in your business through a structured approach, strategic partnerships and automated documentation that eliminates risks.",
+      ? "Notre rôle ? Nous assurer que votre entreprise fonctionne plus facilement—avec moins de pièces mobiles, moins de chaos et plus de clarté. Nous ne vendons pas d'outils. Nous construisons des solutions."
+      : "Our role? To make sure your business runs smoother—with fewer moving parts, less chaos, and more clarity. We don't sell tools. We build solutions.",
     cta: language === 'fr' 
-      ? "Réserver un Diagnostic Flash Gratuit - 30 minutes"
-      : "Book a Free Flash Diagnosis - 30 minutes",
+      ? "📅 Réserver un Appel Découverte"
+      : "📅 Book a Discovery Call",
     ctaSubtext: language === 'fr'
-      ? "Découvrez en 7 jours les opportunités IA spécifiques à votre secteur"
-      : "Discover AI opportunities specific to your sector in 7 days"
+      ? "Discutons de vos processus et priorités"
+      : "Let's discuss your processes and priorities"
   };
 
   return (
