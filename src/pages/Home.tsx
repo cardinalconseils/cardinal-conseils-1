@@ -50,35 +50,35 @@ const Home: React.FC = () => {
             <h1 className="display-1 mb-8">
               {language === 'fr' ? (
                 <>
-                  Si vous êtes une entreprise de 2M$+<br />
-                  qui perd <span className="gradient-text">20+ heures/semaine</span><br />
-                  <span className="text-neutral-600">sur des tâches répétitives...</span>
+                  Nous vous aidons à<br />
+                  <span className="gradient-text">automatiser vos processus</span><br />
+                  <span className="text-neutral-600">pour vous concentrer sur l'essentiel</span>
                 </>
               ) : (
                 <>
-                  If you're a $2M+ business<br />
-                  wasting <span className="gradient-text">20+ hours/week</span><br />
-                  <span className="text-neutral-600">on repetitive tasks...</span>
+                  We help you<br />
+                  <span className="gradient-text">automate your processes</span><br />
+                  <span className="text-neutral-600">so you can focus on what matters</span>
                 </>
               )}
             </h1>
             
             <p className="body-large text-neutral-600 max-w-2xl mb-12">
               {language === 'fr'
-                ? "Je vous montre comment récupérer 15-25 heures/semaine par employé avec le Système d'Automatisation Cardinal - même si vous pensez que 'votre cas est différent'. Garanti en 90 jours ou vous ne payez rien."
-                : "I'll show you how to get back 15-25 hours/week per employee with the Cardinal Automation System - even if you think 'your case is different'. Guaranteed in 90 days or you pay nothing."
+                ? "Nous simplifions vos opérations en automatisant les tâches répétitives. Votre équipe peut alors se concentrer sur ce qui fait vraiment grandir votre entreprise."
+                : "We simplify your operations by automating repetitive tasks. Your team can then focus on what actually grows your business."
               }
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact" className="btn-primary group">
                 <Calendar className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Récupérer 20+ heures/semaine (Appel gratuit)' : 'Get Back 20+ Hours/Week (Free Call)'}
+                {language === 'fr' ? 'Discutons de votre projet' : 'Let\'s talk about your project'}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="#cardinal-system" className="btn-secondary group">
+              <Link to="#how-we-work" className="btn-secondary group">
                 <Brain className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Comment fonctionne le système' : 'How The System Works'}
+                {language === 'fr' ? 'Comment nous travaillons' : 'How we work'}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -89,8 +89,8 @@ const Home: React.FC = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* The Cardinal System */}
-      <section id="cardinal-system" className="py-32 bg-white">
+      {/* How We Work */}
+      <section id="how-we-work" className="py-32 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0 }}
@@ -99,26 +99,26 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-                                    <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'LE SYSTÈME CARDINAL' : 'THE CARDINAL SYSTEM'}
+                                                <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              {language === 'fr' ? 'NOTRE APPROCHE' : 'OUR APPROACH'}
             </div>
               <h2 className="display-2 mb-8">
                 {language === 'fr' ? (
                   <>
-                  Le système en 4 étapes pour récupérer<br />
-                  <span className="gradient-text">15-25 heures par employé, chaque semaine</span>
+                  Une approche simple<br />
+                  <span className="gradient-text">pour des résultats durables</span>
                   </>
                 ) : (
                   <>
-                  The 4-step system to get back<br />
-                  <span className="gradient-text">15-25 hours per employee, every week</span>
+                  A simple approach<br />
+                  <span className="gradient-text">for lasting results</span>
                   </>
                 )}
               </h2>
-                                                            <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
+                                                                        <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
-                ? "Voici la méthode exacte que j'ai utilisée avec 50+ entreprises de 2M$+ pour récupérer 340+ heures par mois (par équipe). Cette méthode fonctionne même si vous avez des processus 'complexes', des équipes résistantes au changement, ou si vous pensez que 'l'automatisation ne marchera jamais chez nous'."
-                : "Here's the exact method I've used with 50+ companies worth $2M+ to get back 340+ hours per month (per team). This method works even if you have 'complex' processes, teams resistant to change, or if you think 'automation will never work for us'."
+                ? "Nous travaillons avec votre équipe pour identifier les processus qui prennent trop de temps, puis nous les simplifions étape par étape. Notre objectif : vous faire gagner du temps pour vous concentrer sur ce qui compte vraiment."
+                : "We work with your team to identify processes that take too much time, then we simplify them step by step. Our goal: save you time so you can focus on what really matters."
                 }
               </p>
           </motion.div>
@@ -131,29 +131,29 @@ const Home: React.FC = () => {
             className="mb-16"
           >
             <h3 className="heading-2 text-center mb-12">
-              {language === 'fr' ? 'Les 4 étapes du Système Cardinal :' : 'The 4 Steps of The Cardinal System:'}
+              {language === 'fr' ? 'Comment nous procédons :' : 'How we do it:'}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                                {
+                                                {
                   icon: Map,
-                  title: language === 'fr' ? 'ÉTAPE 1: Audit des Goulots d\'Étranglement (Jour 1-7)' : 'STEP 1: Bottleneck Audit (Day 1-7)',
+                  title: language === 'fr' ? 'Comprendre vos besoins' : 'Understand your needs',
                   emoji: '🔍'
                 },
                 {
                   icon: Building2,
-                  title: language === 'fr' ? 'ÉTAPE 2: Conception du Système (Jour 8-21)' : 'STEP 2: System Design (Day 8-21)',
-                  emoji: '🏗️'
+                  title: language === 'fr' ? 'Planifier ensemble' : 'Plan together',
+                  emoji: '📋'
                 },
                 {
                   icon: Rocket,
-                  title: language === 'fr' ? 'ÉTAPE 3: Implémentation Automatisée (Jour 22-60)' : 'STEP 3: Automated Implementation (Day 22-60)',
-                  emoji: '🚀'
+                  title: language === 'fr' ? 'Implémenter simplement' : 'Implement simply',
+                  emoji: '⚙️'
                 },
                 {
                   icon: HeartHandshake,
-                  title: language === 'fr' ? 'ÉTAPE 4: Transfert & Autonomie (Jour 61-90)' : 'STEP 4: Handoff & Independence (Day 61-90)',
-                  emoji: '🎯'
+                  title: language === 'fr' ? 'Accompagner votre équipe' : 'Support your team',
+                  emoji: '🤝'
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -178,10 +178,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center bg-neutral-900 text-white rounded-3xl p-12"
           >
-                                                <p className="body-large opacity-90">
+                                                            <p className="body-large opacity-90">
                   {language === 'fr' 
-                ? "ATTENTION: Ce système ne fonctionne que pour les entreprises de 2M$+ avec minimum 10 employés qui perdent 20+ heures/semaine sur des tâches répétitives. Si vous cherchez une solution miracle ou si vous n'êtes pas prêt à investir 90 jours dans l'implémentation, ne perdez pas votre temps."
-                : "WARNING: This system only works for $2M+ businesses with minimum 10 employees wasting 20+ hours/week on repetitive tasks. If you're looking for a magic bullet or not ready to invest 90 days in implementation, don't waste your time."
+                ? "Nous travaillons principalement avec des équipes qui cherchent à simplifier leurs opérations. Si vous êtes prêt à investir du temps pour améliorer vos processus, nous serions ravis de discuter avec vous."
+                : "We mainly work with teams looking to simplify their operations. If you're ready to invest time in improving your processes, we'd love to talk with you."
                   }
                 </p>
           </motion.div>
@@ -199,25 +199,25 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="inline-block bg-gradient-to-r from-cardinal-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'RÉSULTATS GARANTIS EN 90 JOURS' : 'RESULTS GUARANTEED IN 90 DAYS'}
+              {language === 'fr' ? 'BÉNÉFICES ATTENDUS' : 'EXPECTED BENEFITS'}
             </div>
             <h2 className="display-2 mb-8">
               {language === 'fr' ? (
                 <>
-                  Voici exactement ce que vous obtenez<br />
-                  <span className="gradient-text">quand vous implémentez le Système Cardinal</span>
+                  Ce que nos clients<br />
+                  <span className="gradient-text">apprécient le plus</span>
                 </>
               ) : (
                 <>
-                  Here's exactly what you get<br />
-                  <span className="gradient-text">when you implement The Cardinal System</span>
+                  What our clients<br />
+                  <span className="gradient-text">appreciate most</span>
                 </>
               )}
             </h2>
-                                                <p className="body-large text-neutral-600 max-w-4xl mx-auto">
+                                                            <p className="body-large text-neutral-600 max-w-4xl mx-auto">
               {language === 'fr'
-                ? "GARANTIE : Dans les 90 premiers jours, vous récupérez minimum 15 heures/semaine par employé ou vous ne payez rien. Pas de recommandations PowerPoint. Pas de 'phase 2' coûteuse. Juste des systèmes automatisés qui fonctionnent immédiatement et que votre équipe peut gérer sans moi."
-                : "GUARANTEE: Within the first 90 days, you get back minimum 15 hours/week per employee or you pay nothing. No PowerPoint recommendations. No expensive 'phase 2'. Just automated systems that work immediately and your team can manage without me."
+                ? "Nous nous concentrons sur des solutions pratiques qui simplifient vraiment votre quotidien. Notre objectif est de créer des systèmes que votre équipe peut facilement adopter et maintenir."
+                : "We focus on practical solutions that truly simplify your daily work. Our goal is to create systems that your team can easily adopt and maintain."
               }
             </p>
           </motion.div>
@@ -226,26 +226,26 @@ const Home: React.FC = () => {
             {[
               {
                 icon: Users,
-                title: language === 'fr' ? '15-25 Heures Récupérées/Semaine' : '15-25 Hours Recovered/Week',
+                title: language === 'fr' ? 'Plus de temps pour l\'essentiel' : 'More time for what matters',
                 description: language === 'fr' 
-                  ? "RÉSULTAT GARANTI: Chaque employé récupère 15-25 heures par semaine qu'il gaspillait sur des tâches répétitives. Ces heures sont réinvesties dans des activités à haute valeur ajoutée qui font croître votre entreprise. Mesuré et vérifié après 30 jours."
-                  : "GUARANTEED RESULT: Each employee gets back 15-25 hours per week they were wasting on repetitive tasks. These hours are reinvested in high-value activities that grow your business. Measured and verified after 30 days.",
+                  ? "En automatisant les tâches répétitives, votre équipe peut se concentrer sur des activités à plus forte valeur ajoutée. Vous retrouvez du temps pour innover et développer votre entreprise."
+                  : "By automating repetitive tasks, your team can focus on higher-value activities. You regain time to innovate and grow your business.",
                 emoji: '🤝'
               },
               {
                 icon: Target,
-                title: language === 'fr' ? '98% de Projets Livrés en 90 Jours' : '98% Projects Delivered in 90 Days',
+                title: language === 'fr' ? 'Approche progressive et transparente' : 'Progressive and transparent approach',
                 description: language === 'fr' 
-                  ? "TRACK RECORD PROUVÉ: 98% de mes projets d'automatisation sont complétés dans les 90 jours (vs 18+ mois pour les consultants traditionnels). Vous savez exactement quand ça sera fini, combien ça coûte, et quels résultats attendre. Pas de surprises, pas de dépassements."
-                  : "PROVEN TRACK RECORD: 98% of my automation projects are completed within 90 days (vs 18+ months for traditional consultants). You know exactly when it'll be done, what it costs, and what results to expect. No surprises, no overruns.",
+                  ? "Nous privilégions une approche par étapes claires avec des résultats visibles rapidement. Vous savez toujours où nous en sommes et quelles sont les prochaines étapes."
+                  : "We favor a step-by-step approach with quickly visible results. You always know where we are and what the next steps are.",
                 emoji: '📋'
               },
               {
                 icon: TrendingUp,
-                title: language === 'fr' ? '100% Autonomie en 6 Mois' : '100% Independence in 6 Months',
+                title: language === 'fr' ? 'Accompagnement vers l\'autonomie' : 'Support towards independence',
                 description: language === 'fr' 
-                  ? "OBJECTIF FINAL: Votre équipe maîtrise 100% des systèmes automatisés que je construis. Dans 6 mois, vous gérez tout sans moi. Pas de dépendance permanente, pas de frais récurrents cachés. Vous payez une fois, vous en bénéficiez pour toujours."
-                  : "FINAL OBJECTIVE: Your team masters 100% of the automated systems I build. In 6 months, you manage everything without me. No permanent dependency, no hidden recurring fees. You pay once, you benefit forever.",
+                  ? "Notre objectif est de rendre votre équipe autonome. Nous formons vos collaborateurs pour qu'ils puissent maintenir et faire évoluer les solutions mises en place."
+                  : "Our goal is to make your team autonomous. We train your colleagues so they can maintain and evolve the solutions we implement.",
                 emoji: '📈'
               }
             ].map((item, index) => (
@@ -272,7 +272,7 @@ const Home: React.FC = () => {
             className="bg-gradient-to-r from-cardinal-600 to-purple-600 text-white rounded-3xl p-12 text-center"
           >
             <h3 className="heading-2 mb-6">
-              {language === 'fr' ? 'Pourquoi le Système Cardinal bat tous les autres' : 'Why The Cardinal System beats everyone else'}
+              {language === 'fr' ? 'Notre approche différente' : 'Our different approach'}
             </h3>
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
