@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import logoImage from '../assets/logo.png';
 
 const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -24,9 +25,18 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <img 
-              src="/2025_Cardinal_Conseils_LOGO_BLK_200x48.png" 
+              src={logoImage}
               alt="Cardinal Conseils" 
               className="h-12 w-auto mb-6"
+              onError={(e) => {
+                console.error('Footer logo failed, trying public fallback...');
+                e.currentTarget.src = '/cardinal-logo.png';
+                e.currentTarget.onError = () => {
+                  console.error('All footer logos failed');
+                  e.currentTarget.style.border = '2px solid red';
+                };
+              }}
+              onLoad={() => console.log('Footer logo loaded successfully!')}
             />
             <p className="body text-neutral-600 max-w-md">
               {language === 'fr' 
