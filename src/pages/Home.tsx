@@ -110,25 +110,25 @@ const Home: React.FC = () => {
             <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
               {language === 'fr' ? 'QU\'EST-CE QU\'UNE ÉQUIPE D\'IMPACT?' : 'WHAT IS AN IMPACT TEAM?'}
             </div>
-            <h2 className="display-2 mb-8">
-              {language === 'fr' ? (
-                <>
+              <h2 className="display-2 mb-8">
+                {language === 'fr' ? (
+                  <>
                   Pas une agence. Pas un freelance.<br />
                   <span className="gradient-text">Nous sommes votre équipe d'impact.</span>
-                </>
-              ) : (
-                <>
+                  </>
+                ) : (
+                  <>
                   Not an agency. Not a freelancer.<br />
                   <span className="gradient-text">We're your Impact Team.</span>
-                </>
-              )}
-            </h2>
+                  </>
+                )}
+              </h2>
             <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
-              {language === 'fr' 
+                {language === 'fr' 
                 ? "Une équipe d'impact est une unité ciblée de penseurs, de constructeurs et d'opérateurs qui s'intègrent directement dans votre entreprise pour livrer de l'automatisation avec de vrais résultats."
                 : "An Impact Team is a focused unit of thinkers, builders, and operators who embed directly into your business to deliver automation with real outcomes."
-              }
-            </p>
+                }
+              </p>
           </motion.div>
 
           <motion.div
@@ -162,36 +162,150 @@ const Home: React.FC = () => {
                   icon: Settings,
                   title: language === 'fr' ? 'Configuration Tech Stack & Optimisation de Workflows' : 'Tech Stack Setup & Workflow Optimization',
                   emoji: '🛠️'
-                }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
                   className="text-center p-6 rounded-2xl bg-neutral-50 card-hover"
                 >
                   <div className="text-4xl mb-4">{item.emoji}</div>
                   <h4 className="font-semibold text-neutral-900 mb-2">{item.title}</h4>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
             </div>
           </motion.div>
+
+              <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center bg-neutral-900 text-white rounded-3xl p-12"
+          >
+            <p className="body-large opacity-90">
+                  {language === 'fr' 
+                ? "Conçu pour les fondateurs, les opérateurs et les équipes surchargées qui ont besoin d'avancer rapidement, avec clarté."
+                : "Built for founders, operators, and overworked teams who need to move fast, with clarity."
+                  }
+                </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Part-Time Director Concept */}
+      <section className="py-32 bg-gradient-to-br from-cardinal-50 via-white to-neutral-50">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-block bg-gradient-to-r from-cardinal-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              {language === 'fr' ? 'VOTRE ÉQUIPE INTERNE' : 'YOUR INTERNAL TEAM'}
+            </div>
+            <h2 className="display-2 mb-8">
+              {language === 'fr' ? (
+                <>
+                  Plus qu'un consultant :<br />
+                  <span className="gradient-text">Votre directeur marketing et chef de projet à temps partiel</span>
+                </>
+              ) : (
+                <>
+                  More than a consultant:<br />
+                  <span className="gradient-text">Your part-time marketing director & project manager</span>
+                </>
+              )}
+            </h2>
+            <p className="body-large text-neutral-600 max-w-4xl mx-auto">
+              {language === 'fr'
+                ? "Nous ne livrons pas seulement des projets—nous nous intégrons dans votre équipe comme des membres permanents qui comprennent votre culture, vos priorités et vos objectifs à long terme."
+                : "We don't just deliver projects—we integrate with your team as permanent members who understand your culture, priorities, and long-term goals."
+              }
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: Users,
+                title: language === 'fr' ? 'Intégration d\'équipe' : 'Team Integration',
+                description: language === 'fr' 
+                  ? "Je deviens votre directeur marketing interne, participant aux réunions d'équipe, comprenant vos défis quotidiens, et développant des stratégies qui s'alignent avec votre vision."
+                  : "I become your internal marketing director, joining team meetings, understanding your daily challenges, and developing strategies that align with your vision.",
+                emoji: '🤝'
+              },
+              {
+                icon: Target,
+                title: language === 'fr' ? 'Gestion de projet intégrée' : 'Embedded Project Management',
+                description: language === 'fr' 
+                  ? "En tant que chef de projet à temps partiel, je pilote vos initiatives d'automatisation de A à Z, en coordonnant avec vos équipes existantes pour des résultats fluides."
+                  : "As your part-time project manager, I drive your automation initiatives from A to Z, coordinating with your existing teams for seamless results.",
+                emoji: '📋'
+              },
+              {
+                icon: TrendingUp,
+                title: language === 'fr' ? 'Croissance de capacités' : 'Capability Building',
+                description: language === 'fr' 
+                  ? "Mon objectif n'est pas de créer une dépendance, mais de développer vos capacités internes pour que votre équipe devienne autonome en automatisation."
+                  : "My goal isn't to create dependency, but to build your internal capabilities so your team becomes autonomous in automation.",
+                emoji: '📈'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-white rounded-2xl p-8 shadow-lg card-hover text-center"
+              >
+                <div className="text-5xl mb-6">{item.emoji}</div>
+                <h3 className="heading-3 mb-4">{item.title}</h3>
+                <p className="text-neutral-600 leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
 
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center bg-neutral-900 text-white rounded-3xl p-12"
+            className="bg-gradient-to-r from-cardinal-600 to-purple-600 text-white rounded-3xl p-12 text-center"
           >
-            <p className="body-large opacity-90">
-              {language === 'fr' 
-                ? "Conçu pour les fondateurs, les opérateurs et les équipes surchargées qui ont besoin d'avancer rapidement, avec clarté."
-                : "Built for founders, operators, and overworked teams who need to move fast, with clarity."
-              }
-            </p>
+            <h3 className="heading-2 mb-6">
+              {language === 'fr' ? 'La différence d\'avoir quelqu\'un dans votre équipe' : 'The difference of having someone on your team'}
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div>
+                <h4 className="font-bold mb-3">
+                  {language === 'fr' ? '🚫 Consultant traditionnel:' : '🚫 Traditional consultant:'}
+                </h4>
+                <ul className="space-y-2 opacity-90">
+                  <li>{language === 'fr' ? '• Projets isolés avec début/fin' : '• Isolated projects with start/end'}</li>
+                  <li>{language === 'fr' ? '• Peu de contexte business' : '• Limited business context'}</li>
+                  <li>{language === 'fr' ? '• Solutions génériques' : '• Generic solutions'}</li>
+                  <li>{language === 'fr' ? '• Transfert de connaissances minimal' : '• Minimal knowledge transfer'}</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold mb-3">
+                  {language === 'fr' ? '✅ Directeur à temps partiel:' : '✅ Part-time director:'}
+                </h4>
+                <ul className="space-y-2 opacity-90">
+                  <li>{language === 'fr' ? '• Relation continue et évolutive' : '• Ongoing, evolving relationship'}</li>
+                  <li>{language === 'fr' ? '• Compréhension profonde de votre business' : '• Deep understanding of your business'}</li>
+                  <li>{language === 'fr' ? '• Solutions sur mesure' : '• Tailored solutions'}</li>
+                  <li>{language === 'fr' ? '• Développement d\'équipe inclus' : '• Team development included'}</li>
+                </ul>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -307,19 +421,19 @@ const Home: React.FC = () => {
             <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
               {language === 'fr' ? 'POURQUOI L\'IMPACT > EFFICACITÉ' : 'WHY IMPACT > EFFICIENCY'}
             </div>
-            <h2 className="display-2 mb-8">
-              {language === 'fr' ? (
-                <>
+              <h2 className="display-2 mb-8">
+                {language === 'fr' ? (
+                  <>
                   L'automatisation ne concerne pas seulement l'efficacité.<br />
                   <span className="gradient-text">C'est une question d'impact.</span>
-                </>
-              ) : (
-                <>
+                  </>
+                ) : (
+                  <>
                   Automation is not just about efficiency.<br />
                   <span className="gradient-text">It's about impact.</span>
-                </>
-              )}
-            </h2>
+                  </>
+                )}
+              </h2>
           </motion.div>
 
           <motion.div
@@ -439,7 +553,7 @@ const Home: React.FC = () => {
               )}
             </h2>
             <p className="body-large text-neutral-600 max-w-3xl mx-auto">
-              {language === 'fr' 
+              {language === 'fr'
                 ? "Nous ne croyons pas aux grandes révélations. Nous croyons aux petites victoires qui créent de l'élan."
                 : "We don't believe in big reveals. We believe in small wins that build momentum."
               }
@@ -674,11 +788,11 @@ const Home: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="btn-primary bg-white text-cardinal-600 hover:bg-neutral-100 group">
+          <Link to="/contact" className="btn-primary bg-white text-cardinal-600 hover:bg-neutral-100 group">
               <Calendar className="mr-2 h-5 w-5" />
               {language === 'fr' ? 'Réserver un appel découverte' : 'Book a discovery call'}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Link>
             <Link to="/contact" className="btn-secondary bg-white/10 text-white border-white/30 hover:bg-white/20 group">
               <MessageCircle className="mr-2 h-5 w-5" />
               {language === 'fr' ? 'Ou envoyez-nous un message avec un processus que vous aimeriez simplifier' : 'Or send us a message with a process you\'d love to simplify'}

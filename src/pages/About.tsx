@@ -15,38 +15,39 @@ import {
   Brain
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import pierreImage from '../assets/pierre-marc-cardinal.png';
 
 const About: React.FC = () => {
   const { language } = useLanguage();
 
   const philosophyItems = [
     {
-      icon: Bot,
-      title: language === 'fr' ? 'Automatisation d\'abord' : 'Automation first',
+      icon: Users,
+      title: language === 'fr' ? 'Intégration d\'équipe' : 'Team Integration',
       desc: language === 'fr'
-        ? 'Nous identifions et automatisons les processus répétitifs pour libérer votre équipe.'
-        : 'We identify and automate repetitive processes to free up your team.'
+        ? 'Je m\'intègre dans votre équipe existante comme votre directeur marketing et chef de projet à temps partiel.'
+        : 'I integrate with your existing team as your part-time marketing director and project manager.'
+    },
+    {
+      icon: Target,
+      title: language === 'fr' ? 'Impact mesurable' : 'Measurable Impact',
+      desc: language === 'fr'
+        ? 'Chaque projet vise des résultats concrets avec un ROI clair et des métriques de performance.'
+        : 'Every project targets concrete results with clear ROI and performance metrics.'
     },
     {
       icon: Brain,
-      title: language === 'fr' ? 'IA pratique' : 'Practical AI',
+      title: language === 'fr' ? 'Transfert de connaissances' : 'Knowledge Transfer',
       desc: language === 'fr'
-        ? 'Solutions d\'intelligence artificielle concrètes avec un ROI mesurable.'
-        : 'Concrete artificial intelligence solutions with measurable ROI.'
-    },
-    {
-      icon: Users,
-      title: language === 'fr' ? 'Formation incluse' : 'Training included',
-      desc: language === 'fr'
-        ? 'Nous formons vos équipes pour qu\'elles maîtrisent les nouveaux outils.'
-        : 'We train your teams to master the new tools.'
+        ? 'Je forme vos équipes pour qu\'elles deviennent autonomes avec les nouveaux processus et outils.'
+        : 'I train your teams to become autonomous with new processes and tools.'
     },
     {
       icon: TrendingUp,
-      title: language === 'fr' ? 'Croissance continue' : 'Continuous growth',
+      title: language === 'fr' ? 'Croissance stratégique' : 'Strategic Growth',
       desc: language === 'fr'
-        ? 'Support continu pour optimiser et faire évoluer vos automatisations.'
-        : 'Ongoing support to optimize and evolve your automations.'
+        ? 'Je développe votre capacité interne d\'automatisation pour soutenir une croissance durable.'
+        : 'I develop your internal automation capacity to support sustainable growth.'
     }
   ];
 
@@ -70,10 +71,10 @@ const About: React.FC = () => {
   ];
 
   const commitments = [
-    language === 'fr' ? 'Audit gratuit de vos processus' : 'Free audit of your processes',
-    language === 'fr' ? 'ROI garanti ou remboursement' : 'Guaranteed ROI or refund',
-    language === 'fr' ? 'Support 24/7 pour les systèmes critiques' : '24/7 support for critical systems',
-    language === 'fr' ? 'Conformité RGPD et sécurité des données' : 'GDPR compliance and data security'
+    language === 'fr' ? 'Intégration complète dans votre équipe existante' : 'Full integration with your existing team',
+    language === 'fr' ? 'Transfert de connaissances pour l\'autonomie future' : 'Knowledge transfer for future autonomy',
+    language === 'fr' ? 'Résultats mesurables dans les 90 premiers jours' : 'Measurable results within the first 90 days',
+    language === 'fr' ? 'Support continu pour la croissance de vos capacités' : 'Ongoing support for growing your capabilities'
   ];
 
   return (
@@ -85,10 +86,17 @@ const About: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
-              {language === 'fr' ? 'Agence d\'automatisation et d\'IA' : 'Automation and AI Agency'}
+              {language === 'fr' ? 'Rencontrez Pierre-Marc Cardinal' : 'Meet Pierre-Marc Cardinal'}
             </h1>
+            <p className="text-xl text-neutral-700 max-w-3xl mx-auto">
+              {language === 'fr' 
+                ? 'Fondateur de Cardinal Conseils • Votre Directeur Marketing et Chef de Projet à temps partiel pour l\'automatisation'
+                : 'Founder of Cardinal Conseils • Your Part-Time Marketing Director & Project Manager for Automation'
+              }
+            </p>
           </motion.div>
         </div>
       </section>
@@ -104,18 +112,23 @@ const About: React.FC = () => {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl font-bold text-neutral-900 mb-6">
-                {language === 'fr' ? 'Notre mission' : 'Our mission'}
+                {language === 'fr' ? 'Mon approche' : 'My approach'}
               </h2>
               <div className="space-y-4 text-lg text-neutral-700">
                 <p>
                   {language === 'fr'
-                    ? 'Cardinal Conseils est une agence spécialisée dans l\'automatisation des processus d\'affaires et l\'intégration de l\'intelligence artificielle pour les entreprises québécoises.'
-                    : 'Cardinal Conseils is an agency specialized in business process automation and artificial intelligence integration for Quebec businesses.'}
+                    ? 'Je ne suis pas juste un consultant—je suis votre directeur marketing et chef de projet à temps partiel. Mon rôle est d\'identifier les processus qui vous ralentissent et de les transformer en avantages concurrentiels.'
+                    : 'I\'m not just a consultant—I\'m your part-time marketing director and project manager. My role is to identify the processes that slow you down and transform them into competitive advantages.'}
                 </p>
                 <p>
                   {language === 'fr'
-                    ? 'Nous transformons les opérations manuelles en systèmes automatisés intelligents qui permettent à nos clients d\'économiser temps et argent tout en améliorant leur efficacité.'
-                    : 'We transform manual operations into intelligent automated systems that allow our clients to save time and money while improving their efficiency.'}
+                    ? 'Avec plus de 15 ans d\'expérience en automatisation et gestion de projet, j\'aide les entreprises québécoises à développer leurs capacités internes tout en livrant des résultats concrets rapidement.'
+                    : 'With over 15 years of experience in automation and project management, I help Quebec businesses develop their internal capabilities while delivering concrete results quickly.'}
+                </p>
+                <p>
+                  {language === 'fr'
+                    ? 'Mon approche "Impact Team" signifie que je m\'intègre dans votre équipe existante, je comprends votre culture d\'entreprise, et je construis des solutions que vos employés vont réellement utiliser.'
+                    : 'My "Impact Team" approach means I integrate with your existing team, understand your company culture, and build solutions your employees will actually use.'}
                 </p>
               </div>
             </motion.div>
@@ -128,9 +141,14 @@ const About: React.FC = () => {
               className="relative"
             >
               <img
-                src="https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg"
-                alt={language === 'fr' ? 'Équipe Cardinal Conseils' : 'Cardinal Conseils team'}
-                className="rounded-2xl shadow-2xl"
+                src={pierreImage}
+                alt={language === 'fr' ? 'Pierre-Marc Cardinal' : 'Pierre-Marc Cardinal'}
+                className="rounded-2xl shadow-2xl w-full h-auto"
+                onError={(e) => {
+                  console.error('Pierre-Marc image failed to load');
+                  e.currentTarget.style.border = '2px solid red';
+                }}
+                onLoad={() => console.log('Pierre-Marc image loaded successfully')}
               />
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-cardinal-600 rounded-2xl -z-10" />
             </motion.div>
@@ -148,7 +166,7 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            {language === 'fr' ? 'Notre approche' : 'Our approach'}
+            {language === 'fr' ? 'Ma méthode de travail' : 'How I work with you'}
           </motion.h2>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -238,7 +256,7 @@ const About: React.FC = () => {
             className="text-center"
           >
             <h2 className="text-3xl font-bold mb-12">
-              {language === 'fr' ? 'Nos engagements' : 'Our commitments'}
+              {language === 'fr' ? 'Mes engagements envers vous' : 'My commitments to you'}
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
