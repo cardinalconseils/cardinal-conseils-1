@@ -3,20 +3,14 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   ArrowRight, 
-  Sparkles,
   Zap,
   Target,
-  Shield,
   TrendingUp,
   ChevronRight,
   Bot,
-  Workflow,
   Brain,
-  FileText,
   Users,
   Clock,
-  DollarSign,
-  CheckCircle,
   Calendar,
   MessageCircle,
   Settings,
@@ -30,7 +24,7 @@ import {
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Home: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -73,8 +67,8 @@ const Home: React.FC = () => {
             
             <p className="body-large text-neutral-600 max-w-2xl mb-12">
               {language === 'fr'
-                ? "Nous aidons les entreprises à simplifier et développer leurs opérations grâce à la cartographie intelligente des processus, l'automatisation et l'IA—sans le charabia du conseil traditionnel."
-                : "We help businesses simplify and scale their operations through smart process mapping, automation, and AI—without the fluff of traditional consulting."
+                ? "Votre équipe croule sous les tâches répétitives ? Moi, je trouve les trucs qui vous ralentissent et je les automatise. Pas de jargon, pas de projets qui traînent—juste des solutions qui marchent."
+                : "Your team drowning in repetitive tasks? I find the stuff that's slowing you down and automate it. No jargon, no dragging projects—just solutions that actually work."
               }
             </p>
             
@@ -123,10 +117,10 @@ const Home: React.FC = () => {
                   </>
                 )}
               </h2>
-                        <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
+                                    <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
-                ? "Comme votre directeur marketing et chef de projet à temps partiel, je comprends votre culture d'entreprise, vos priorités et vos défis quotidiens—pour livrer des solutions d'automatisation que votre équipe utilisera vraiment."
-                : "As your part-time marketing director and project manager, I understand your company culture, priorities, and daily challenges—to deliver automation solutions your team will actually use."
+                ? "En gros, je rejoins votre équipe quelques jours par semaine. Je vois comment vous travaillez vraiment (pas juste sur papier), je trouve ce qui accroche, et je règle ça avec des outils d'automatisation qui font du sens pour vous."
+                : "Basically, I join your team a few days a week. I see how you actually work (not just on paper), find what's getting stuck, and fix it with automation tools that make sense for you."
                 }
               </p>
           </motion.div>
@@ -186,10 +180,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center bg-neutral-900 text-white rounded-3xl p-12"
           >
-            <p className="body-large opacity-90">
+                        <p className="body-large opacity-90">
                   {language === 'fr' 
-                ? "Conçu pour les fondateurs, les opérateurs et les équipes surchargées qui ont besoin d'avancer rapidement, avec clarté."
-                : "Built for founders, operators, and overworked teams who need to move fast, with clarity."
+                ? "Parfait si vous êtes fondateur, directeur d'ops, ou si votre équipe court après le temps et veut juste que les choses fonctionnent mieux."
+                : "Perfect if you're a founder, ops director, or your team is always running behind and just wants things to work better."
                   }
                 </p>
           </motion.div>
@@ -222,10 +216,10 @@ const Home: React.FC = () => {
                 </>
               )}
             </h2>
-            <p className="body-large text-neutral-600 max-w-4xl mx-auto">
+                        <p className="body-large text-neutral-600 max-w-4xl mx-auto">
               {language === 'fr'
-                ? "Nous ne livrons pas seulement des projets—nous nous intégrons dans votre équipe comme des membres permanents qui comprennent votre culture, vos priorités et vos objectifs à long terme."
-                : "We don't just deliver projects—we integrate with your team as permanent members who understand your culture, priorities, and long-term goals."
+                ? "Écoutez, je ne débarque pas avec un PowerPoint de 50 slides. Je m'assois avec votre équipe, je bois le même café que vous, et j'apprends comment vous fonctionnez vraiment avant de toucher à quoi que ce soit."
+                : "Look, I don't show up with a 50-slide PowerPoint. I sit with your team, drink the same coffee you do, and learn how you actually work before touching anything."
               }
             </p>
           </motion.div>
@@ -234,26 +228,26 @@ const Home: React.FC = () => {
             {[
               {
                 icon: Users,
-                title: language === 'fr' ? 'Intégration d\'équipe' : 'Team Integration',
+                title: language === 'fr' ? 'Je fais partie de l\'équipe' : 'I become part of the team',
                 description: language === 'fr' 
-                  ? "Je deviens votre directeur marketing interne, participant aux réunions d'équipe, comprenant vos défis quotidiens, et développant des stratégies qui s'alignent avec votre vision."
-                  : "I become your internal marketing director, joining team meetings, understanding your daily challenges, and developing strategies that align with your vision.",
+                  ? "Je viens à vos meetings, je vois comment vous vous tirez les cheveux avec vos processus, et je comprends pourquoi Marie du marketing perd 2h par jour à copier-coller des données."
+                  : "I come to your meetings, see how you're pulling your hair out with your processes, and understand why Marie from marketing loses 2 hours a day copy-pasting data.",
                 emoji: '🤝'
               },
               {
                 icon: Target,
-                title: language === 'fr' ? 'Gestion de projet intégrée' : 'Embedded Project Management',
+                title: language === 'fr' ? 'Je gère le bordel' : 'I handle the mess',
                 description: language === 'fr' 
-                  ? "En tant que chef de projet à temps partiel, je pilote vos initiatives d'automatisation de A à Z, en coordonnant avec vos équipes existantes pour des résultats fluides."
-                  : "As your part-time project manager, I drive your automation initiatives from A to Z, coordinating with your existing teams for seamless results.",
+                  ? "Vous n'avez pas besoin de gérer un autre projet. Je m'en occupe. Je coordonne tout, je m'assure que ça avance, et je vous tiens au courant sans vous noyer dans les détails."
+                  : "You don't need to manage another project. I handle it. I coordinate everything, make sure it moves forward, and keep you updated without drowning you in details.",
                 emoji: '📋'
               },
               {
                 icon: TrendingUp,
-                title: language === 'fr' ? 'Croissance de capacités' : 'Capability Building',
+                title: language === 'fr' ? 'Vous rendre autonomes' : 'Making you independent',
                 description: language === 'fr' 
-                  ? "Mon objectif n'est pas de créer une dépendance, mais de développer vos capacités internes pour que votre équipe devienne autonome en automatisation."
-                  : "My goal isn't to create dependency, but to build your internal capabilities so your team becomes autonomous in automation.",
+                  ? "Mon but, c'est que votre équipe puisse se débrouiller sans moi. Je vous montre comment ça marche, je forme 2-3 personnes chez vous, et après vous êtes autonomes. Pas de piège."
+                  : "My goal is for your team to manage without me. I show you how it works, train 2-3 people on your team, and then you're independent. No tricks.",
                 emoji: '📈'
               }
             ].map((item, index) => (
@@ -288,10 +282,10 @@ const Home: React.FC = () => {
                   {language === 'fr' ? '🚫 Consultant traditionnel:' : '🚫 Traditional consultant:'}
                 </h4>
                 <ul className="space-y-2 opacity-90">
-                  <li>{language === 'fr' ? '• Projets isolés avec début/fin' : '• Isolated projects with start/end'}</li>
-                  <li>{language === 'fr' ? '• Peu de contexte business' : '• Limited business context'}</li>
-                  <li>{language === 'fr' ? '• Solutions génériques' : '• Generic solutions'}</li>
-                  <li>{language === 'fr' ? '• Transfert de connaissances minimal' : '• Minimal knowledge transfer'}</li>
+                  <li>{language === 'fr' ? '• Débarque, livre, et s\'en va' : '• Shows up, delivers, and leaves'}</li>
+                  <li>{language === 'fr' ? '• Comprend rien à votre réalité' : '• Doesn\'t get your reality'}</li>
+                  <li>{language === 'fr' ? '• Solution du copier-coller' : '• Copy-paste solutions'}</li>
+                  <li>{language === 'fr' ? '• Vous laisse vous débrouiller après' : '• Leaves you to figure it out after'}</li>
                 </ul>
               </div>
               <div>
@@ -299,10 +293,10 @@ const Home: React.FC = () => {
                   {language === 'fr' ? '✅ Directeur à temps partiel:' : '✅ Part-time director:'}
                 </h4>
                 <ul className="space-y-2 opacity-90">
-                  <li>{language === 'fr' ? '• Relation continue et évolutive' : '• Ongoing, evolving relationship'}</li>
-                  <li>{language === 'fr' ? '• Compréhension profonde de votre business' : '• Deep understanding of your business'}</li>
-                  <li>{language === 'fr' ? '• Solutions sur mesure' : '• Tailored solutions'}</li>
-                  <li>{language === 'fr' ? '• Développement d\'équipe inclus' : '• Team development included'}</li>
+                  <li>{language === 'fr' ? '• Reste et grandit avec vous' : '• Stays and grows with you'}</li>
+                  <li>{language === 'fr' ? '• Connaît votre équipe par leur prénom' : '• Knows your team by their first name'}</li>
+                  <li>{language === 'fr' ? '• Construit pour VOTRE réalité' : '• Built for YOUR reality'}</li>
+                  <li>{language === 'fr' ? '• Forme votre équipe en cours de route' : '• Trains your team along the way'}</li>
                 </ul>
               </div>
             </div>
