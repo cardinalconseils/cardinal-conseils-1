@@ -67,8 +67,8 @@ const Home: React.FC = () => {
             
             <p className="body-large text-neutral-600 max-w-2xl mb-12">
               {language === 'fr'
-                ? "Votre équipe croule sous les tâches répétitives ? Moi, je trouve les trucs qui vous ralentissent et je les automatise. Pas de jargon, pas de projets qui traînent—juste des solutions qui marchent."
-                : "Your team drowning in repetitive tasks? I find the stuff that's slowing you down and automate it. No jargon, no dragging projects—just solutions that actually work."
+                ? "Votre équipe perd 20+ heures par semaine sur des tâches qu'un robot pourrait faire ? Vous continuez à embaucher plus de monde au lieu d'automatiser ? Parfait. Continuez comme ça pendant que vos compétiteurs prennent de l'avance. Ou appelez-moi et on règle ça."
+                : "Your team wastes 20+ hours a week on tasks a robot could do? You keep hiring more people instead of automating? Perfect. Keep doing that while your competitors pull ahead. Or call me and we'll fix it."
               }
             </p>
             
@@ -117,10 +117,10 @@ const Home: React.FC = () => {
                   </>
                 )}
               </h2>
-                                    <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
+                                                <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
-                ? "En gros, je rejoins votre équipe quelques jours par semaine. Je vois comment vous travaillez vraiment (pas juste sur papier), je trouve ce qui accroche, et je règle ça avec des outils d'automatisation qui font du sens pour vous."
-                : "Basically, I join your team a few days a week. I see how you actually work (not just on paper), find what's getting stuck, and fix it with automation tools that make sense for you."
+                ? "En 15 ans, j'ai automatisé des millions de dollars d'opérations pour des entreprises qui ont arrêté de perdre leur temps. Vous pensez que votre cas est différent ? C'est exactement ce que me disaient mes 50+ clients avant que je leur prouve le contraire. Je rejoins votre équipe 2-3 jours par semaine, j'identifie vos goulots d'étranglement, et je les élimine."
+                : "In 15 years, I've automated millions of dollars worth of operations for companies that stopped wasting time. Think your case is different? That's exactly what my 50+ clients told me before I proved them wrong. I join your team 2-3 days a week, identify your bottlenecks, and eliminate them."
                 }
               </p>
           </motion.div>
@@ -180,10 +180,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center bg-neutral-900 text-white rounded-3xl p-12"
           >
-                        <p className="body-large opacity-90">
+                                    <p className="body-large opacity-90">
                   {language === 'fr' 
-                ? "Parfait si vous êtes fondateur, directeur d'ops, ou si votre équipe court après le temps et veut juste que les choses fonctionnent mieux."
-                : "Perfect if you're a founder, ops director, or your team is always running behind and just wants things to work better."
+                ? "Vous êtes fondateur ou directeur d'ops ? Votre équipe travaille 50+ heures/semaine sur des tâches répétitives ? Vous perdez des clients parce que vos processus sont trop lents ? Alors on doit se parler."
+                : "You're a founder or ops director? Your team works 50+ hours/week on repetitive tasks? You're losing clients because your processes are too slow? Then we need to talk."
                   }
                 </p>
           </motion.div>
@@ -216,10 +216,10 @@ const Home: React.FC = () => {
                 </>
               )}
             </h2>
-                        <p className="body-large text-neutral-600 max-w-4xl mx-auto">
+                                    <p className="body-large text-neutral-600 max-w-4xl mx-auto">
               {language === 'fr'
-                ? "Écoutez, je ne débarque pas avec un PowerPoint de 50 slides. Je m'assois avec votre équipe, je bois le même café que vous, et j'apprends comment vous fonctionnez vraiment avant de toucher à quoi que ce soit."
-                : "Look, I don't show up with a 50-slide PowerPoint. I sit with your team, drink the same coffee you do, and learn how you actually work before touching anything."
+                ? "Vous avez déjà payé des consultants qui ont livré des recommandations que personne n'utilise ? Qui ont créé plus de problèmes qu'ils n'en ont réglés ? Moi, je ne fais pas de recommandations. Je m'intègre dans votre équipe, je mets les mains dans le cambouis, et je construis des solutions que vos employés vont réellement adopter. Ou votre argent remis."
+                : "Ever paid consultants who delivered recommendations nobody uses? Who created more problems than they solved? I don't make recommendations. I embed in your team, get my hands dirty, and build solutions your employees will actually adopt. Or your money back."
               }
             </p>
           </motion.div>
@@ -230,24 +230,24 @@ const Home: React.FC = () => {
                 icon: Users,
                 title: language === 'fr' ? 'Je fais partie de l\'équipe' : 'I become part of the team',
                 description: language === 'fr' 
-                  ? "Je viens à vos meetings, je vois comment vous vous tirez les cheveux avec vos processus, et je comprends pourquoi Marie du marketing perd 2h par jour à copier-coller des données."
-                  : "I come to your meetings, see how you're pulling your hair out with your processes, and understand why Marie from marketing loses 2 hours a day copy-pasting data.",
+                  ? "Semaine 1: J'assiste à tous vos meetings opérationnels. Semaine 2: Je documente chaque processus cassé. Semaine 3: Je construis les solutions avec votre équipe. Résultat: Votre équipe récupère 15-25 heures par semaine qu'elle peut réinvestir dans la croissance."
+                  : "Week 1: I attend all your operational meetings. Week 2: I document every broken process. Week 3: I build solutions with your team. Result: Your team gets back 15-25 hours per week they can reinvest in growth.",
                 emoji: '🤝'
               },
               {
                 icon: Target,
                 title: language === 'fr' ? 'Je gère le bordel' : 'I handle the mess',
                 description: language === 'fr' 
-                  ? "Vous n'avez pas besoin de gérer un autre projet. Je m'en occupe. Je coordonne tout, je m'assure que ça avance, et je vous tiens au courant sans vous noyer dans les détails."
-                  : "You don't need to manage another project. I handle it. I coordinate everything, make sure it moves forward, and keep you updated without drowning you in details.",
+                  ? "Vous en avez marre des projets qui s'éternisent ? J'ai un taux de completion de 98% en 90 jours max. Je prends la responsabilité complète du projet, je coordonne avec vos équipes, et je livre dans les temps. Toujours. Ou vous ne payez pas."
+                  : "Tired of projects that drag on forever? I have a 98% completion rate within 90 days max. I take full responsibility for the project, coordinate with your teams, and deliver on time. Always. Or you don't pay.",
                 emoji: '📋'
               },
               {
                 icon: TrendingUp,
                 title: language === 'fr' ? 'Vous rendre autonomes' : 'Making you independent',
                 description: language === 'fr' 
-                  ? "Mon but, c'est que votre équipe puisse se débrouiller sans moi. Je vous montre comment ça marche, je forme 2-3 personnes chez vous, et après vous êtes autonomes. Pas de piège."
-                  : "My goal is for your team to manage without me. I show you how it works, train 2-3 people on your team, and then you're independent. No tricks.",
+                  ? "La plupart des consultants vous gardent dépendants pour vous facturer plus longtemps. Moi, je forme 3-4 personnes clés de votre équipe pour qu'elles maîtrisent 100% des systèmes que je construis. Résultat: Dans 6 mois, vous n'avez plus besoin de moi. C'est ça, le vrai succès."
+                  : "Most consultants keep you dependent to bill you longer. I train 3-4 key people on your team to master 100% of the systems I build. Result: In 6 months, you don't need me anymore. That's real success.",
                 emoji: '📈'
               }
             ].map((item, index) => (
@@ -282,10 +282,10 @@ const Home: React.FC = () => {
                   {language === 'fr' ? '🚫 Consultant traditionnel:' : '🚫 Traditional consultant:'}
                 </h4>
                 <ul className="space-y-2 opacity-90">
-                  <li>{language === 'fr' ? '• Débarque, livre, et s\'en va' : '• Shows up, delivers, and leaves'}</li>
-                  <li>{language === 'fr' ? '• Comprend rien à votre réalité' : '• Doesn\'t get your reality'}</li>
-                  <li>{language === 'fr' ? '• Solution du copier-coller' : '• Copy-paste solutions'}</li>
-                  <li>{language === 'fr' ? '• Vous laisse vous débrouiller après' : '• Leaves you to figure it out after'}</li>
+                  <li>{language === 'fr' ? '• PowerPoint de 200 slides, implémentation 0%' : '• 200-slide PowerPoint, 0% implementation'}</li>
+                  <li>{language === 'fr' ? '• Facture plus pour rester plus longtemps' : '• Bills more to stay longer'}</li>
+                  <li>{language === 'fr' ? '• Solutions génériques qui ne marchent jamais' : '• Generic solutions that never work'}</li>
+                  <li>{language === 'fr' ? '• Vous rend dépendant de leurs services' : '• Makes you dependent on their services'}</li>
                 </ul>
               </div>
               <div>
@@ -293,10 +293,10 @@ const Home: React.FC = () => {
                   {language === 'fr' ? '✅ Directeur à temps partiel:' : '✅ Part-time director:'}
                 </h4>
                 <ul className="space-y-2 opacity-90">
-                  <li>{language === 'fr' ? '• Reste et grandit avec vous' : '• Stays and grows with you'}</li>
-                  <li>{language === 'fr' ? '• Connaît votre équipe par leur prénom' : '• Knows your team by their first name'}</li>
-                  <li>{language === 'fr' ? '• Construit pour VOTRE réalité' : '• Built for YOUR reality'}</li>
-                  <li>{language === 'fr' ? '• Forme votre équipe en cours de route' : '• Trains your team along the way'}</li>
+                  <li>{language === 'fr' ? '• Implémentation 98%, théorie 2%' : '• 98% implementation, 2% theory'}</li>
+                  <li>{language === 'fr' ? '• Objectif: vous rendre autonome rapidement' : '• Goal: make you independent quickly'}</li>
+                  <li>{language === 'fr' ? '• Solutions sur mesure qui fonctionnent vraiment' : '• Custom solutions that actually work'}</li>
+                  <li>{language === 'fr' ? '• Garantie résultats ou remboursement' : '• Results guaranteed or money back'}</li>
                 </ul>
               </div>
             </div>
