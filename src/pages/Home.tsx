@@ -7,7 +7,6 @@ import {
   Target,
   TrendingUp,
   ChevronRight,
-  Bot,
   Brain,
   Users,
   Clock,
@@ -18,7 +17,6 @@ import {
   Building2,
   Lightbulb,
   Rocket,
-  Cog,
   HeartHandshake
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -52,35 +50,35 @@ const Home: React.FC = () => {
             <h1 className="display-1 mb-8">
               {language === 'fr' ? (
                 <>
-                  🚀 Nous sommes votre<br />
-                  <span className="gradient-text">équipe d'impact</span><br />
-                  <span className="text-neutral-600">pour l'automatisation</span>
+                  Si vous êtes une entreprise de 2M$+<br />
+                  qui perd <span className="gradient-text">20+ heures/semaine</span><br />
+                  <span className="text-neutral-600">sur des tâches répétitives...</span>
                 </>
               ) : (
                 <>
-                  🚀 We Are Your<br />
-                  <span className="gradient-text">Impact Team</span><br />
-                  <span className="text-neutral-600">for Automation</span>
+                  If you're a $2M+ business<br />
+                  wasting <span className="gradient-text">20+ hours/week</span><br />
+                  <span className="text-neutral-600">on repetitive tasks...</span>
                 </>
               )}
             </h1>
             
             <p className="body-large text-neutral-600 max-w-2xl mb-12">
               {language === 'fr'
-                ? "Votre équipe perd 20+ heures par semaine sur des tâches qu'un robot pourrait faire ? Vous continuez à embaucher plus de monde au lieu d'automatiser ? Parfait. Continuez comme ça pendant que vos compétiteurs prennent de l'avance. Ou appelez-moi et on règle ça."
-                : "Your team wastes 20+ hours a week on tasks a robot could do? You keep hiring more people instead of automating? Perfect. Keep doing that while your competitors pull ahead. Or call me and we'll fix it."
+                ? "Je vous montre comment récupérer 15-25 heures/semaine par employé avec le Système d'Automatisation Cardinal - même si vous pensez que 'votre cas est différent'. Garanti en 90 jours ou vous ne payez rien."
+                : "I'll show you how to get back 15-25 hours/week per employee with the Cardinal Automation System - even if you think 'your case is different'. Guaranteed in 90 days or you pay nothing."
               }
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact" className="btn-primary group">
                 <Calendar className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Réserver un appel découverte' : 'Book a Discovery Call'}
+                {language === 'fr' ? 'Récupérer 20+ heures/semaine (Appel gratuit)' : 'Get Back 20+ Hours/Week (Free Call)'}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="#what-is-impact-team" className="btn-secondary group">
+              <Link to="#cardinal-system" className="btn-secondary group">
                 <Brain className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Qu\'est-ce qu\'une équipe d\'impact?' : 'What\'s an Impact Team?'}
+                {language === 'fr' ? 'Comment fonctionne le système' : 'How The System Works'}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -91,8 +89,8 @@ const Home: React.FC = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* What is an Impact Team */}
-      <section id="what-is-impact-team" className="py-32 bg-white">
+      {/* The Cardinal System */}
+      <section id="cardinal-system" className="py-32 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0 }}
@@ -101,26 +99,26 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-                        <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'LA MÉTHODE IMPACT TEAM' : 'THE IMPACT TEAM METHOD'}
+                                    <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              {language === 'fr' ? 'LE SYSTÈME CARDINAL' : 'THE CARDINAL SYSTEM'}
             </div>
-            <h2 className="display-2 mb-8">
-              {language === 'fr' ? (
-                <>
-                  Oubliez les consultants traditionnels.<br />
-                  <span className="gradient-text">Voici comment on travaille vraiment.</span>
-                </>
-              ) : (
-                <>
-                  Forget traditional consultants.<br />
-                  <span className="gradient-text">Here's how we actually work.</span>
-                </>
-              )}
-            </h2>
-                                                <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
+              <h2 className="display-2 mb-8">
+                {language === 'fr' ? (
+                  <>
+                  Le système en 4 étapes pour récupérer<br />
+                  <span className="gradient-text">15-25 heures par employé, chaque semaine</span>
+                  </>
+                ) : (
+                  <>
+                  The 4-step system to get back<br />
+                  <span className="gradient-text">15-25 hours per employee, every week</span>
+                  </>
+                )}
+              </h2>
+                                                            <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
-                ? "En 15 ans, j'ai automatisé des millions de dollars d'opérations pour des entreprises qui ont arrêté de perdre leur temps. Vous pensez que votre cas est différent ? C'est exactement ce que me disaient mes 50+ clients avant que je leur prouve le contraire. Je rejoins votre équipe 2-3 jours par semaine, j'identifie vos goulots d'étranglement, et je les élimine."
-                : "In 15 years, I've automated millions of dollars worth of operations for companies that stopped wasting time. Think your case is different? That's exactly what my 50+ clients told me before I proved them wrong. I join your team 2-3 days a week, identify your bottlenecks, and eliminate them."
+                ? "Voici la méthode exacte que j'ai utilisée avec 50+ entreprises de 2M$+ pour récupérer 340+ heures par mois (par équipe). Cette méthode fonctionne même si vous avez des processus 'complexes', des équipes résistantes au changement, ou si vous pensez que 'l'automatisation ne marchera jamais chez nous'."
+                : "Here's the exact method I've used with 50+ companies worth $2M+ to get back 340+ hours per month (per team). This method works even if you have 'complex' processes, teams resistant to change, or if you think 'automation will never work for us'."
                 }
               </p>
           </motion.div>
@@ -133,29 +131,29 @@ const Home: React.FC = () => {
             className="mb-16"
           >
             <h3 className="heading-2 text-center mb-12">
-              {language === 'fr' ? 'La méthode couvre 4 domaines clés :' : 'The method covers 4 key areas:'}
+              {language === 'fr' ? 'Les 4 étapes du Système Cardinal :' : 'The 4 Steps of The Cardinal System:'}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                {
-                  icon: Brain,
-                  title: language === 'fr' ? 'Cartographie & Redésign de Processus' : 'Process Mapping & Redesign',
-                  emoji: '🧠'
+                                {
+                  icon: Map,
+                  title: language === 'fr' ? 'ÉTAPE 1: Audit des Goulots d\'Étranglement (Jour 1-7)' : 'STEP 1: Bottleneck Audit (Day 1-7)',
+                  emoji: '🔍'
                 },
                 {
-                  icon: Cog,
-                  title: language === 'fr' ? 'Outils d\'Automatisation & Orchestration' : 'Automation Tools & Orchestration',
-                  emoji: '⚙️'
+                  icon: Building2,
+                  title: language === 'fr' ? 'ÉTAPE 2: Conception du Système (Jour 8-21)' : 'STEP 2: System Design (Day 8-21)',
+                  emoji: '🏗️'
                 },
                 {
-                  icon: Bot,
-                  title: language === 'fr' ? 'Agents IA & Intégration LLM' : 'AI Agents & LLM Integration',
-                  emoji: '🤖'
+                  icon: Rocket,
+                  title: language === 'fr' ? 'ÉTAPE 3: Implémentation Automatisée (Jour 22-60)' : 'STEP 3: Automated Implementation (Day 22-60)',
+                  emoji: '🚀'
                 },
                 {
-                  icon: Settings,
-                  title: language === 'fr' ? 'Configuration Tech Stack & Optimisation de Workflows' : 'Tech Stack Setup & Workflow Optimization',
-                  emoji: '🛠️'
+                  icon: HeartHandshake,
+                  title: language === 'fr' ? 'ÉTAPE 4: Transfert & Autonomie (Jour 61-90)' : 'STEP 4: Handoff & Independence (Day 61-90)',
+                  emoji: '🎯'
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -180,10 +178,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center bg-neutral-900 text-white rounded-3xl p-12"
           >
-                                    <p className="body-large opacity-90">
+                                                <p className="body-large opacity-90">
                   {language === 'fr' 
-                ? "Vous êtes fondateur ou directeur d'ops ? Votre équipe travaille 50+ heures/semaine sur des tâches répétitives ? Vous perdez des clients parce que vos processus sont trop lents ? Alors on doit se parler."
-                : "You're a founder or ops director? Your team works 50+ hours/week on repetitive tasks? You're losing clients because your processes are too slow? Then we need to talk."
+                ? "ATTENTION: Ce système ne fonctionne que pour les entreprises de 2M$+ avec minimum 10 employés qui perdent 20+ heures/semaine sur des tâches répétitives. Si vous cherchez une solution miracle ou si vous n'êtes pas prêt à investir 90 jours dans l'implémentation, ne perdez pas votre temps."
+                : "WARNING: This system only works for $2M+ businesses with minimum 10 employees wasting 20+ hours/week on repetitive tasks. If you're looking for a magic bullet or not ready to invest 90 days in implementation, don't waste your time."
                   }
                 </p>
           </motion.div>
@@ -201,27 +199,25 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="inline-block bg-gradient-to-r from-cardinal-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'MON RÔLE DANS VOTRE ÉQUIPE' : 'MY ROLE IN YOUR TEAM'}
+              {language === 'fr' ? 'RÉSULTATS GARANTIS EN 90 JOURS' : 'RESULTS GUARANTEED IN 90 DAYS'}
             </div>
             <h2 className="display-2 mb-8">
               {language === 'fr' ? (
                 <>
-                  Je deviens votre<br />
-                  <span className="gradient-text">directeur automatisation interne</span><br />
-                  <span className="text-neutral-600">2-3 jours par semaine</span>
+                  Voici exactement ce que vous obtenez<br />
+                  <span className="gradient-text">quand vous implémentez le Système Cardinal</span>
                 </>
               ) : (
                 <>
-                  I become your<br />
-                  <span className="gradient-text">internal automation director</span><br />
-                  <span className="text-neutral-600">2-3 days per week</span>
+                  Here's exactly what you get<br />
+                  <span className="gradient-text">when you implement The Cardinal System</span>
                 </>
               )}
             </h2>
-                                    <p className="body-large text-neutral-600 max-w-4xl mx-auto">
+                                                <p className="body-large text-neutral-600 max-w-4xl mx-auto">
               {language === 'fr'
-                ? "Vous avez déjà payé des consultants qui ont livré des recommandations que personne n'utilise ? Qui ont créé plus de problèmes qu'ils n'en ont réglés ? Moi, je ne fais pas de recommandations. Je m'intègre dans votre équipe, je mets les mains dans le cambouis, et je construis des solutions que vos employés vont réellement adopter. Ou votre argent remis."
-                : "Ever paid consultants who delivered recommendations nobody uses? Who created more problems than they solved? I don't make recommendations. I embed in your team, get my hands dirty, and build solutions your employees will actually adopt. Or your money back."
+                ? "GARANTIE : Dans les 90 premiers jours, vous récupérez minimum 15 heures/semaine par employé ou vous ne payez rien. Pas de recommandations PowerPoint. Pas de 'phase 2' coûteuse. Juste des systèmes automatisés qui fonctionnent immédiatement et que votre équipe peut gérer sans moi."
+                : "GUARANTEE: Within the first 90 days, you get back minimum 15 hours/week per employee or you pay nothing. No PowerPoint recommendations. No expensive 'phase 2'. Just automated systems that work immediately and your team can manage without me."
               }
             </p>
           </motion.div>
@@ -230,26 +226,26 @@ const Home: React.FC = () => {
             {[
               {
                 icon: Users,
-                title: language === 'fr' ? 'Je fais partie de l\'équipe' : 'I become part of the team',
+                title: language === 'fr' ? '15-25 Heures Récupérées/Semaine' : '15-25 Hours Recovered/Week',
                 description: language === 'fr' 
-                  ? "Semaine 1: J'assiste à tous vos meetings opérationnels. Semaine 2: Je documente chaque processus cassé. Semaine 3: Je construis les solutions avec votre équipe. Résultat: Votre équipe récupère 15-25 heures par semaine qu'elle peut réinvestir dans la croissance."
-                  : "Week 1: I attend all your operational meetings. Week 2: I document every broken process. Week 3: I build solutions with your team. Result: Your team gets back 15-25 hours per week they can reinvest in growth.",
+                  ? "RÉSULTAT GARANTI: Chaque employé récupère 15-25 heures par semaine qu'il gaspillait sur des tâches répétitives. Ces heures sont réinvesties dans des activités à haute valeur ajoutée qui font croître votre entreprise. Mesuré et vérifié après 30 jours."
+                  : "GUARANTEED RESULT: Each employee gets back 15-25 hours per week they were wasting on repetitive tasks. These hours are reinvested in high-value activities that grow your business. Measured and verified after 30 days.",
                 emoji: '🤝'
               },
               {
                 icon: Target,
-                title: language === 'fr' ? 'Je gère le bordel' : 'I handle the mess',
+                title: language === 'fr' ? '98% de Projets Livrés en 90 Jours' : '98% Projects Delivered in 90 Days',
                 description: language === 'fr' 
-                  ? "Vous en avez marre des projets qui s'éternisent ? J'ai un taux de completion de 98% en 90 jours max. Je prends la responsabilité complète du projet, je coordonne avec vos équipes, et je livre dans les temps. Toujours. Ou vous ne payez pas."
-                  : "Tired of projects that drag on forever? I have a 98% completion rate within 90 days max. I take full responsibility for the project, coordinate with your teams, and deliver on time. Always. Or you don't pay.",
+                  ? "TRACK RECORD PROUVÉ: 98% de mes projets d'automatisation sont complétés dans les 90 jours (vs 18+ mois pour les consultants traditionnels). Vous savez exactement quand ça sera fini, combien ça coûte, et quels résultats attendre. Pas de surprises, pas de dépassements."
+                  : "PROVEN TRACK RECORD: 98% of my automation projects are completed within 90 days (vs 18+ months for traditional consultants). You know exactly when it'll be done, what it costs, and what results to expect. No surprises, no overruns.",
                 emoji: '📋'
               },
               {
                 icon: TrendingUp,
-                title: language === 'fr' ? 'Vous rendre autonomes' : 'Making you independent',
+                title: language === 'fr' ? '100% Autonomie en 6 Mois' : '100% Independence in 6 Months',
                 description: language === 'fr' 
-                  ? "La plupart des consultants vous gardent dépendants pour vous facturer plus longtemps. Moi, je forme 3-4 personnes clés de votre équipe pour qu'elles maîtrisent 100% des systèmes que je construis. Résultat: Dans 6 mois, vous n'avez plus besoin de moi. C'est ça, le vrai succès."
-                  : "Most consultants keep you dependent to bill you longer. I train 3-4 key people on your team to master 100% of the systems I build. Result: In 6 months, you don't need me anymore. That's real success.",
+                  ? "OBJECTIF FINAL: Votre équipe maîtrise 100% des systèmes automatisés que je construis. Dans 6 mois, vous gérez tout sans moi. Pas de dépendance permanente, pas de frais récurrents cachés. Vous payez une fois, vous en bénéficiez pour toujours."
+                  : "FINAL OBJECTIVE: Your team masters 100% of the automated systems I build. In 6 months, you manage everything without me. No permanent dependency, no hidden recurring fees. You pay once, you benefit forever.",
                 emoji: '📈'
               }
             ].map((item, index) => (
@@ -276,7 +272,7 @@ const Home: React.FC = () => {
             className="bg-gradient-to-r from-cardinal-600 to-purple-600 text-white rounded-3xl p-12 text-center"
           >
             <h3 className="heading-2 mb-6">
-              {language === 'fr' ? 'La différence d\'avoir quelqu\'un dans votre équipe' : 'The difference of having someone on your team'}
+              {language === 'fr' ? 'Pourquoi le Système Cardinal bat tous les autres' : 'Why The Cardinal System beats everyone else'}
             </h3>
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
