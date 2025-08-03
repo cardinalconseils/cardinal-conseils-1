@@ -101,22 +101,22 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'QU\'EST-CE QU\'UNE ÉQUIPE D\'IMPACT?' : 'WHAT IS AN IMPACT TEAM?'}
+                        <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              {language === 'fr' ? 'LA MÉTHODE IMPACT TEAM' : 'THE IMPACT TEAM METHOD'}
             </div>
-              <h2 className="display-2 mb-8">
-                {language === 'fr' ? (
-                  <>
-                  Je deviens votre expert automatisation interne.<br />
-                  <span className="gradient-text">Intégré dans votre équipe, pas à l'extérieur.</span>
-                  </>
-                ) : (
-                  <>
-                  I become your internal automation expert.<br />
-                  <span className="gradient-text">Embedded in your team, not outside it.</span>
-                  </>
-                )}
-              </h2>
+            <h2 className="display-2 mb-8">
+              {language === 'fr' ? (
+                <>
+                  Oubliez les consultants traditionnels.<br />
+                  <span className="gradient-text">Voici comment on travaille vraiment.</span>
+                </>
+              ) : (
+                <>
+                  Forget traditional consultants.<br />
+                  <span className="gradient-text">Here's how we actually work.</span>
+                </>
+              )}
+            </h2>
                                                 <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
                 ? "En 15 ans, j'ai automatisé des millions de dollars d'opérations pour des entreprises qui ont arrêté de perdre leur temps. Vous pensez que votre cas est différent ? C'est exactement ce que me disaient mes 50+ clients avant que je leur prouve le contraire. Je rejoins votre équipe 2-3 jours par semaine, j'identifie vos goulots d'étranglement, et je les élimine."
@@ -133,7 +133,7 @@ const Home: React.FC = () => {
             className="mb-16"
           >
             <h3 className="heading-2 text-center mb-12">
-              {language === 'fr' ? 'Nous réunissons :' : 'We bring together:'}
+              {language === 'fr' ? 'La méthode couvre 4 domaines clés :' : 'The method covers 4 key areas:'}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -201,18 +201,20 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="inline-block bg-gradient-to-r from-cardinal-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'VOTRE ÉQUIPE INTERNE' : 'YOUR INTERNAL TEAM'}
+              {language === 'fr' ? 'MON RÔLE DANS VOTRE ÉQUIPE' : 'MY ROLE IN YOUR TEAM'}
             </div>
             <h2 className="display-2 mb-8">
               {language === 'fr' ? (
                 <>
-                  Plus qu'un consultant :<br />
-                  <span className="gradient-text">Votre directeur marketing et chef de projet à temps partiel</span>
+                  Je deviens votre<br />
+                  <span className="gradient-text">directeur automatisation interne</span><br />
+                  <span className="text-neutral-600">2-3 jours par semaine</span>
                 </>
               ) : (
                 <>
-                  More than a consultant:<br />
-                  <span className="gradient-text">Your part-time marketing director & project manager</span>
+                  I become your<br />
+                  <span className="gradient-text">internal automation director</span><br />
+                  <span className="text-neutral-600">2-3 days per week</span>
                 </>
               )}
             </h2>
