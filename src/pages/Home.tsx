@@ -113,20 +113,20 @@ const Home: React.FC = () => {
               <h2 className="display-2 mb-8">
                 {language === 'fr' ? (
                   <>
-                  Pas une agence. Pas un freelance.<br />
-                  <span className="gradient-text">Nous sommes votre équipe d'impact.</span>
+                  Je deviens votre expert automatisation interne.<br />
+                  <span className="gradient-text">Intégré dans votre équipe, pas à l'extérieur.</span>
                   </>
                 ) : (
                   <>
-                  Not an agency. Not a freelancer.<br />
-                  <span className="gradient-text">We're your Impact Team.</span>
+                  I become your internal automation expert.<br />
+                  <span className="gradient-text">Embedded in your team, not outside it.</span>
                   </>
                 )}
               </h2>
-            <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
+                        <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
-                ? "Une équipe d'impact est une unité ciblée de penseurs, de constructeurs et d'opérateurs qui s'intègrent directement dans votre entreprise pour livrer de l'automatisation avec de vrais résultats."
-                : "An Impact Team is a focused unit of thinkers, builders, and operators who embed directly into your business to deliver automation with real outcomes."
+                ? "Comme votre directeur marketing et chef de projet à temps partiel, je comprends votre culture d'entreprise, vos priorités et vos défis quotidiens—pour livrer des solutions d'automatisation que votre équipe utilisera vraiment."
+                : "As your part-time marketing director and project manager, I understand your company culture, priorities, and daily challenges—to deliver automation solutions your team will actually use."
                 }
               </p>
           </motion.div>
