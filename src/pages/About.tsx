@@ -119,23 +119,23 @@ const About: React.FC = () => {
             <h1 className="display-1 mb-8 text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
               {language === 'fr' ? (
                 <>
-                  Rencontrez<br />
-                  <span className="gradient-text">Pierre-Marc</span><br />
-                  <span className="text-neutral-100">Cardinal</span>
+                  J'aide les PME québécoises à<br />
+                  <span className="gradient-text">automatiser</span><br />
+                  <span className="text-neutral-100">sans complexité</span>
                 </>
               ) : (
                 <>
-                  Meet<br />
-                  <span className="gradient-text">Pierre-Marc</span><br />
-                  <span className="text-neutral-100">Cardinal</span>
+                  I help Quebec SMEs<br />
+                  <span className="gradient-text">automate</span><br />
+                  <span className="text-neutral-100">without complexity</span>
                 </>
               )}
             </h1>
             
             <p className="body-large text-neutral-100 max-w-2xl mb-12" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
               {language === 'fr'
-                ? "Fondateur de Cardinal Conseils • Votre Directeur Marketing et Chef de Projet à temps partiel pour l'automatisation. Plus de 15 ans d'expérience en transformation digitale et gestion de projet."
-                : "Founder of Cardinal Conseils • Your Part-Time Marketing Director & Project Manager for Automation. Over 15 years of experience in digital transformation and project management."
+                ? "Pierre-Marc Cardinal, fondateur de Cardinal Conseils. Je m'intègre dans votre équipe pour transformer vos processus manuels répétitifs en systèmes automatisés qui fonctionnent vraiment."
+                : "Pierre-Marc Cardinal, founder of Cardinal Conseils. I integrate with your team to transform repetitive manual processes into automated systems that actually work."
               }
             </p>
             
