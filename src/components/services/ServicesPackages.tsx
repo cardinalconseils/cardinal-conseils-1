@@ -144,9 +144,9 @@ const ServicesPackages: React.FC = () => {
     }
   ];
 
-  return (
-    <section className="py-20 bg-neutral-50">
-      <div className="container-custom">
+        return (
+        <section id="services-packages" className="py-32 gradient-neutral">
+          <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

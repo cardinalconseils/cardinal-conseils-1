@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   Mail, 
   Phone, 
@@ -7,12 +7,23 @@ import {
   Linkedin, 
   Clock,
   Calendar,
-  Send
+  Send,
+  ArrowRight,
+  ChevronRight,
+  Brain
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact: React.FC = () => {
   const { language } = useLanguage();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -120,49 +131,93 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-cardinal-50 via-white to-neutral-50">
-        <div className="container-custom">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Black and white hero image background */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=80&sat=-100')`
+            }}
+          />
+          <div className="absolute inset-0 gradient-neutral noise opacity-20" />
+        </div>
+        
+        <motion.div 
+          className="container-custom relative z-10 pt-20"
+          style={{ y, opacity }}
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
-              {language === 'fr' ? 'Prenons contact' : 'Let\'s get in touch'}
+            <h1 className="display-1 mb-8 text-white">
+              {language === 'fr' ? (
+                <>
+                  Prenons<br />
+                  <span className="gradient-text">contact</span><br />
+                  <span className="text-neutral-300">ensemble</span>
+                </>
+              ) : (
+                <>
+                  Let's get<br />
+                  <span className="gradient-text">in touch</span><br />
+                  <span className="text-neutral-300">together</span>
+                </>
+              )}
             </h1>
-            <div className="bg-cardinal-100 border-l-4 border-cardinal-600 p-6 rounded-r-lg">
-              <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
-                {language === 'fr' ? 'Consultation initiale gratuite' : 'Free initial consultation'}
-              </h2>
-              <div className="space-y-2 text-neutral-700">
-                <p className="flex items-center space-x-2">
-                  <Clock className="h-5 w-5 text-cardinal-600" />
+            
+            <p className="body-large text-neutral-200 max-w-2xl mb-8">
+              {language === 'fr'
+                ? "Consultation initiale gratuite de 30 minutes pour comprendre votre contexte et identifier les opportunités d'automatisation."
+                : "Free 30-minute initial consultation to understand your context and identify automation opportunities."
+              }
+            </p>
+
+            <div className="glass rounded-2xl p-6 mb-12 max-w-2xl">
+              <div className="grid md:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center space-x-2 text-white">
+                  <Clock className="h-4 w-4 text-neutral-300" />
                   <span>
-                    <strong>{language === 'fr' ? 'Durée :' : 'Duration:'}</strong> 30 minutes
+                    <strong>{language === 'fr' ? 'Durée :' : 'Duration:'}</strong> 30 min
                   </span>
-                </p>
-                <p className="flex items-center space-x-2">
-                  <Calendar className="h-5 w-5 text-cardinal-600" />
+                </div>
+                <div className="flex items-center space-x-2 text-white">
+                  <Calendar className="h-4 w-4 text-neutral-300" />
                   <span>
-                    <strong>Format :</strong> {language === 'fr' ? 'Visioconférence ou en personne (région de Montréal)' : 'Video conference or in person (Montreal area)'}
+                    <strong>Format :</strong> {language === 'fr' ? 'Vidéo/Personne' : 'Video/In-person'}
                   </span>
-                </p>
-                <p className="flex items-center space-x-2">
-                  <Send className="h-5 w-5 text-cardinal-600" />
+                </div>
+                <div className="flex items-center space-x-2 text-white">
+                  <Brain className="h-4 w-4 text-neutral-300" />
                   <span>
-                    <strong>{language === 'fr' ? 'Objectif :' : 'Objective:'}</strong> {language === 'fr' ? 'Comprendre votre contexte et identifier les opportunités' : 'Understand your context and identify opportunities'}
+                    <strong>{language === 'fr' ? 'Objectif :' : 'Goal:'}</strong> {language === 'fr' ? 'Opportunités' : 'Opportunities'}
                   </span>
-                </p>
+                </div>
               </div>
             </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="#contact-form" className="btn-primary group">
+                <Send className="mr-2 h-5 w-5" />
+                {language === 'fr' ? 'Commencer maintenant' : 'Get started now'}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a href="mailto:info@cardinalconseils.com" className="btn-secondary group bg-white/10 text-white border-white/20 hover:bg-white/20">
+                <Mail className="mr-2 h-5 w-5" />
+                {language === 'fr' ? 'Écrivez-nous directement' : 'Email us directly'}
+                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
+      <section id="contact-form" className="py-32 gradient-neutral">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Form */}
@@ -173,7 +228,7 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8">
+              <form onSubmit={handleSubmit} className="card card-hover p-8">
                 <h3 className="text-2xl font-bold text-neutral-900 mb-6">
                   {language === 'fr' ? 'Formulaire de contact' : 'Contact form'}
                 </h3>
@@ -368,8 +423,8 @@ const Contact: React.FC = () => {
               className="space-y-8"
             >
               {/* Contact Details */}
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-6">
+              <div className="card card-hover p-8">
+                <h3 className="heading-2 text-neutral-900 mb-6">
                   {language === 'fr' ? 'Coordonnées' : 'Contact information'}
                 </h3>
                 <div className="space-y-4">
@@ -386,8 +441,8 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Availability */}
-              <div className="bg-cardinal-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-6">
+              <div className="card bg-cardinal-50 border-cardinal-100 p-8">
+                <h3 className="heading-2 text-neutral-900 mb-6">
                   {language === 'fr' ? 'Disponibilités' : 'Availability'}
                 </h3>
                 <div className="space-y-3">

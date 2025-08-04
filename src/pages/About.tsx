@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   Target, 
   Eye, 
@@ -14,13 +14,24 @@ import {
   Workflow,
   Brain,
   Linkedin,
-  ExternalLink
+  ExternalLink,
+  ArrowRight,
+  Calendar,
+  ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import pierreImage from '../assets/pierre-marc-cardinal.png';
 
 const About: React.FC = () => {
   const { language } = useLanguage();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const philosophyItems = [
     {
@@ -80,45 +91,75 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-cardinal-50 via-white to-neutral-50">
-        <div className="container-custom">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Black and white hero image background */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=2000&q=80&sat=-100')`
+            }}
+          />
+          <div className="absolute inset-0 gradient-neutral noise opacity-20" />
+        </div>
+        
+        <motion.div 
+          className="container-custom relative z-10 pt-20"
+          style={{ y, opacity }}
+        >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
-              {language === 'fr' ? 'Rencontrez Pierre-Marc Cardinal' : 'Meet Pierre-Marc Cardinal'}
+            <h1 className="display-1 mb-8 text-white">
+              {language === 'fr' ? (
+                <>
+                  Rencontrez<br />
+                  <span className="gradient-text">Pierre-Marc</span><br />
+                  <span className="text-neutral-300">Cardinal</span>
+                </>
+              ) : (
+                <>
+                  Meet<br />
+                  <span className="gradient-text">Pierre-Marc</span><br />
+                  <span className="text-neutral-300">Cardinal</span>
+                </>
+              )}
             </h1>
-            <p className="text-xl text-neutral-700 max-w-3xl mx-auto mb-8">
-              {language === 'fr' 
-                ? 'Fondateur de Cardinal Conseils • Votre Directeur Marketing et Chef de Projet à temps partiel pour l\'automatisation'
-                : 'Founder of Cardinal Conseils • Your Part-Time Marketing Director & Project Manager for Automation'
+            
+            <p className="body-large text-neutral-200 max-w-2xl mb-12">
+              {language === 'fr'
+                ? "Fondateur de Cardinal Conseils • Votre Directeur Marketing et Chef de Projet à temps partiel pour l'automatisation. Plus de 15 ans d'expérience en transformation digitale et gestion de projet."
+                : "Founder of Cardinal Conseils • Your Part-Time Marketing Director & Project Manager for Automation. Over 15 years of experience in digital transformation and project management."
               }
             </p>
-            <div className="flex justify-center">
+            
+            <div className="flex flex-col sm:flex-row gap-4">
               <a 
                 href="https://www.linkedin.com/in/pmcardinal/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#0077B5] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#005885] transition-colors duration-300 shadow-lg hover:shadow-xl"
+                className="btn-primary group"
               >
-                <Linkedin className="h-5 w-5" />
-                <span>
-                  {language === 'fr' ? 'Voir mon profil LinkedIn' : 'View LinkedIn Profile'}
-                </span>
-                <ExternalLink className="h-4 w-4" />
+                <Linkedin className="mr-2 h-5 w-5" />
+                {language === 'fr' ? 'Voir mon profil LinkedIn' : 'View LinkedIn Profile'}
+                <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a href="/contact" className="btn-secondary group bg-white/10 text-white border-white/20 hover:bg-white/20">
+                <Calendar className="mr-2 h-5 w-5" />
+                {language === 'fr' ? 'Planifier une consultation' : 'Schedule a consultation'}
+                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Background Section */}
-      <section className="py-20 bg-white">
+      <section className="py-32 bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -173,7 +214,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-20 bg-neutral-50">
+      <section className="py-32 gradient-neutral">
         <div className="container-custom">
           <motion.h2
             className="text-3xl font-bold text-neutral-900 mb-12 text-center"
@@ -215,7 +256,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Tools Section */}
-      <section className="py-20 bg-white">
+      <section className="py-32 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0 }}
@@ -262,7 +303,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Commitments Section */}
-      <section className="py-20 bg-gradient-to-br from-cardinal-600 to-cardinal-700 text-white">
+      <section className="py-32 gradient-cardinal text-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0 }}
