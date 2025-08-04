@@ -7,7 +7,6 @@ import logoImage from '../assets/logo.png';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { language, setLanguage, t } = useLanguage();
@@ -20,14 +19,6 @@ const Navigation: React.FC = () => {
       setLanguage('fr');
     }
   }, [location.pathname, setLanguage]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const getLocalizedPath = (path: string, targetLang: 'fr' | 'en') => {
     // Remove language prefix if exists
@@ -73,9 +64,7 @@ const Navigation: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? 'glass shadow-sm' : 'bg-transparent'
-      }`}>
+      <nav className="fixed top-0 w-full z-50 bg-white shadow-sm border-b border-neutral-100 transition-all duration-300">
         <div className="container-custom">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -109,8 +98,8 @@ const Navigation: React.FC = () => {
                     to={localizedPath}
                     className={`relative text-sm font-medium transition-all duration-300 ${
                       isActive
-                        ? 'text-neutral-900'
-                        : 'text-neutral-600 hover:text-neutral-900'
+                        ? 'text-cardinal-600 font-semibold'
+                        : 'text-neutral-700 hover:text-cardinal-600'
                     }`}
                   >
                     {item.label}
@@ -129,7 +118,7 @@ const Navigation: React.FC = () => {
               {/* Language Switcher */}
               <button
                 onClick={handleLanguageSwitch}
-                className="text-sm font-medium text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+                className="text-sm font-medium text-neutral-700 hover:text-cardinal-600 transition-colors duration-200 px-2 py-1 rounded border border-neutral-200 hover:border-cardinal-300"
               >
                 {language === 'fr' ? 'EN' : 'FR'}
               </button>
@@ -138,12 +127,12 @@ const Navigation: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden relative z-10 p-2"
+              className="md:hidden relative z-10 p-2 hover:bg-neutral-50 rounded transition-colors duration-200"
             >
               <div className="w-6 h-5 relative flex flex-col justify-between">
-                <span className={`block h-[2px] bg-neutral-900 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
-                <span className={`block h-[2px] bg-neutral-900 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-                <span className={`block h-[2px] bg-neutral-900 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
+                <span className={`block h-[2px] bg-neutral-700 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[9px]' : ''}`} />
+                <span className={`block h-[2px] bg-neutral-700 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+                <span className={`block h-[2px] bg-neutral-700 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[9px]' : ''}`} />
               </div>
             </button>
           </div>
@@ -180,8 +169,8 @@ const Navigation: React.FC = () => {
                           onClick={() => setIsOpen(false)}
                           className={`block text-3xl font-medium transition-colors duration-200 ${
                             isActive
-                              ? 'text-neutral-900'
-                              : 'text-neutral-400 hover:text-neutral-900'
+                              ? 'text-cardinal-600 font-semibold'
+                              : 'text-neutral-600 hover:text-cardinal-600'
                           }`}
                         >
                           {item.label}
@@ -198,7 +187,7 @@ const Navigation: React.FC = () => {
                       handleLanguageSwitch();
                       setIsOpen(false);
                     }}
-                    className="text-xl font-medium text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+                    className="text-xl font-medium text-neutral-700 hover:text-cardinal-600 transition-colors duration-200"
                   >
                     {language === 'fr' ? 'English' : 'Français'}
                   </motion.button>
