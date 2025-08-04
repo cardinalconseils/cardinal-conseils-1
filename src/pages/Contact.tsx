@@ -134,15 +134,17 @@ const Contact: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Black and white hero image background */}
+        {/* Professional gradient background with improved readability */}
         <div className="absolute inset-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=80&sat=-100')`
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2000&q=80&sat=-100')`
             }}
           />
-          <div className="absolute inset-0 gradient-neutral noise opacity-20" />
+          <div className="absolute inset-0 gradient-neutral noise opacity-30" />
+          {/* Additional text readability overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
         </div>
         
         <motion.div 
@@ -154,23 +156,23 @@ const Contact: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="display-1 mb-8 text-white">
+            <h1 className="display-1 mb-8 text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               {language === 'fr' ? (
                 <>
                   Prenons<br />
                   <span className="gradient-text">contact</span><br />
-                  <span className="text-neutral-300">ensemble</span>
+                  <span className="text-neutral-100">ensemble</span>
                 </>
               ) : (
                 <>
                   Let's get<br />
                   <span className="gradient-text">in touch</span><br />
-                  <span className="text-neutral-300">together</span>
+                  <span className="text-neutral-100">together</span>
                 </>
               )}
             </h1>
             
-            <p className="body-large text-neutral-200 max-w-2xl mb-8">
+            <p className="body-large text-neutral-100 max-w-2xl mb-8" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               {language === 'fr'
                 ? "Consultation initiale gratuite de 30 minutes pour comprendre votre contexte et identifier les opportunités d'automatisation."
                 : "Free 30-minute initial consultation to understand your context and identify automation opportunities."

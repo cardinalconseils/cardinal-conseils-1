@@ -94,15 +94,17 @@ const About: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Black and white hero image background */}
+        {/* Professional branded gradient background */}
         <div className="absolute inset-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=2000&q=80&sat=-100')`
-            }}
-          />
-          <div className="absolute inset-0 gradient-neutral noise opacity-20" />
+          {/* Cardinal-branded gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-cardinal-900 to-neutral-800" />
+          {/* Subtle pattern overlay for texture */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/3 to-transparent" />
+          </div>
+          {/* Noise texture for visual interest */}
+          <div className="absolute inset-0 gradient-neutral noise opacity-15" />
         </div>
         
         <motion.div 
@@ -114,23 +116,23 @@ const About: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="display-1 mb-8 text-white">
+            <h1 className="display-1 mb-8 text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
               {language === 'fr' ? (
                 <>
                   Rencontrez<br />
                   <span className="gradient-text">Pierre-Marc</span><br />
-                  <span className="text-neutral-300">Cardinal</span>
+                  <span className="text-neutral-100">Cardinal</span>
                 </>
               ) : (
                 <>
                   Meet<br />
                   <span className="gradient-text">Pierre-Marc</span><br />
-                  <span className="text-neutral-300">Cardinal</span>
+                  <span className="text-neutral-100">Cardinal</span>
                 </>
               )}
             </h1>
             
-            <p className="body-large text-neutral-200 max-w-2xl mb-12">
+            <p className="body-large text-neutral-100 max-w-2xl mb-12" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
               {language === 'fr'
                 ? "Fondateur de Cardinal Conseils • Votre Directeur Marketing et Chef de Projet à temps partiel pour l'automatisation. Plus de 15 ans d'expérience en transformation digitale et gestion de projet."
                 : "Founder of Cardinal Conseils • Your Part-Time Marketing Director & Project Manager for Automation. Over 15 years of experience in digital transformation and project management."
