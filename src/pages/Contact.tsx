@@ -39,8 +39,13 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     
     try {
+      // Determine API URL based on environment
+      const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:3001/api/contact'  // Development server
+        : '/api/contact';                      // Production (Vercel)
+
       // Send form data to our Resend API endpoint
-      const response = await fetch('/api/contact', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
