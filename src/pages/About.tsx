@@ -12,7 +12,9 @@ import {
   CheckCircle,
   Bot,
   Workflow,
-  Brain
+  Brain,
+  Linkedin,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import pierreImage from '../assets/pierre-marc-cardinal.png';
@@ -91,12 +93,26 @@ const About: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
               {language === 'fr' ? 'Rencontrez Pierre-Marc Cardinal' : 'Meet Pierre-Marc Cardinal'}
             </h1>
-            <p className="text-xl text-neutral-700 max-w-3xl mx-auto">
+            <p className="text-xl text-neutral-700 max-w-3xl mx-auto mb-8">
               {language === 'fr' 
                 ? 'Fondateur de Cardinal Conseils • Votre Directeur Marketing et Chef de Projet à temps partiel pour l\'automatisation'
                 : 'Founder of Cardinal Conseils • Your Part-Time Marketing Director & Project Manager for Automation'
               }
             </p>
+            <div className="flex justify-center">
+              <a 
+                href="https://www.linkedin.com/in/pmcardinal/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#0077B5] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#005885] transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span>
+                  {language === 'fr' ? 'Voir mon profil LinkedIn' : 'View LinkedIn Profile'}
+                </span>
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
