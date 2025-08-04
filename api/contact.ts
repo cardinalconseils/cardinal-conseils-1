@@ -20,9 +20,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   }
 
-  // Validate email configuration
-  if (!process.env.RESEND_API_KEY || !process.env.RESEND_API_KEY.startsWith('re_')) {
-    console.error('RESEND_API_KEY not configured properly');
+  // Handle missing RESEND_API_KEY gracefully for testing
+  if (!process.env.RESEND_API_KEY) {
+    console.log('RESEND_API_KEY not set - returning simulation response');
+    return res.status(200).json({
+      success: true,
+      message: language === 'fr' 
+        ? '✅ Message reçu ! (Mode simulation - RESEND_API_KEY requis pour l\'envoi réel)'
+        : '✅ Message received! (Simulation mode - RESEND_API_KEY required for real sending)',
+      emailId: 'simulation_' + Date.now(),
+      note: 'Set RESEND_API_KEY environment variable in Vercel for real email sending'
+    });
+  }
+
+  if (!process.env.RESEND_API_KEY.startsWith('re_')) {
+    console.error('RESEND_API_KEY has invalid format');
     return res.status(500).json({
       success: false,
       message: 'Email service configuration error. Please contact support.'
