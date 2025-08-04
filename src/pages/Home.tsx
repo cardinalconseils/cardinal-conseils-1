@@ -50,35 +50,35 @@ const Home: React.FC = () => {
             <h1 className="display-1 mb-8">
               {language === 'fr' ? (
                 <>
-                  Nous vous aidons à<br />
-                  <span className="gradient-text">automatiser vos processus</span><br />
-                  <span className="text-neutral-600">pour vous concentrer sur l'essentiel</span>
+                  Transformez votre façon<br />
+                  <span className="gradient-text">de travailler</span><br />
+                  <span className="text-neutral-600">avec l'automatisation intelligente</span>
                 </>
               ) : (
                 <>
-                  We help you<br />
-                  <span className="gradient-text">automate your processes</span><br />
-                  <span className="text-neutral-600">so you can focus on what matters</span>
+                  Transform the way<br />
+                  <span className="gradient-text">you work</span><br />
+                  <span className="text-neutral-600">with intelligent automation</span>
                 </>
               )}
             </h1>
             
             <p className="body-large text-neutral-600 max-w-2xl mb-12">
               {language === 'fr'
-                ? "Nous simplifions vos opérations en automatisant les tâches répétitives. Votre équipe peut alors se concentrer sur ce qui fait vraiment grandir votre entreprise."
-                : "We simplify your operations by automating repetitive tasks. Your team can then focus on what actually grows your business."
+                ? "Imaginez une équipe libérée des tâches répétitives, qui peut enfin se consacrer à l'innovation et à la croissance. Nous rendons cette vision possible grâce à des solutions d'automatisation sur mesure, conçues pour s'intégrer harmonieusement à votre façon de travailler."
+                : "Imagine a team freed from repetitive tasks, finally able to focus on innovation and growth. We make this vision possible through custom automation solutions designed to integrate seamlessly with your way of working."
               }
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact" className="btn-primary group">
                 <Calendar className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Discutons de votre projet' : 'Let\'s talk about your project'}
+                {language === 'fr' ? 'Explorons vos possibilités' : 'Explore your possibilities'}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link to="#how-we-work" className="btn-secondary group">
                 <Brain className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Comment nous travaillons' : 'How we work'}
+                {language === 'fr' ? 'Découvrir notre méthode' : 'Discover our approach'}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -99,26 +99,26 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-                                                <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'NOTRE APPROCHE' : 'OUR APPROACH'}
+                                                            <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              {language === 'fr' ? 'NOTRE PHILOSOPHIE' : 'OUR PHILOSOPHY'}
             </div>
               <h2 className="display-2 mb-8">
                 {language === 'fr' ? (
                   <>
-                  Une approche simple<br />
-                  <span className="gradient-text">pour des résultats durables</span>
+                  L'excellence dans<br />
+                  <span className="gradient-text">la simplicité</span>
                   </>
                 ) : (
                   <>
-                  A simple approach<br />
-                  <span className="gradient-text">for lasting results</span>
+                  Excellence through<br />
+                  <span className="gradient-text">simplicity</span>
                   </>
                 )}
               </h2>
-                                                                        <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
+                                                                                    <p className="body-large text-neutral-600 max-w-4xl mx-auto mb-12">
                 {language === 'fr' 
-                ? "Nous travaillons avec votre équipe pour identifier les processus qui prennent trop de temps, puis nous les simplifions étape par étape. Notre objectif : vous faire gagner du temps pour vous concentrer sur ce qui compte vraiment."
-                : "We work with your team to identify processes that take too much time, then we simplify them step by step. Our goal: save you time so you can focus on what really matters."
+                ? "Nous croyons qu'une technologie bien pensée doit disparaître dans l'expérience quotidienne, permettant à vos équipes de retrouver leur créativité et leur impact. Notre mission est de créer des solutions élégantes qui transforment naturellement votre façon de travailler, sans jamais la contraindre."
+                : "We believe that well-designed technology should disappear into the daily experience, allowing your teams to rediscover their creativity and impact. Our mission is to create elegant solutions that naturally transform the way you work, without ever constraining it."
                 }
               </p>
           </motion.div>
@@ -131,29 +131,29 @@ const Home: React.FC = () => {
             className="mb-16"
           >
             <h3 className="heading-2 text-center mb-12">
-              {language === 'fr' ? 'Comment nous procédons :' : 'How we do it:'}
+              {language === 'fr' ? 'Notre parcours ensemble' : 'Our journey together'}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                                                {
+                                                                {
                   icon: Map,
-                  title: language === 'fr' ? 'Comprendre vos besoins' : 'Understand your needs',
-                  emoji: '🔍'
+                  title: language === 'fr' ? 'Écouter et observer' : 'Listen and observe',
+                  emoji: '👂'
                 },
                 {
                   icon: Building2,
-                  title: language === 'fr' ? 'Planifier ensemble' : 'Plan together',
-                  emoji: '📋'
+                  title: language === 'fr' ? 'Concevoir ensemble' : 'Design together',
+                  emoji: '✨'
                 },
                 {
                   icon: Rocket,
-                  title: language === 'fr' ? 'Implémenter simplement' : 'Implement simply',
-                  emoji: '⚙️'
+                  title: language === 'fr' ? 'Créer avec élégance' : 'Create with elegance',
+                  emoji: '🎨'
                 },
                 {
                   icon: HeartHandshake,
-                  title: language === 'fr' ? 'Accompagner votre équipe' : 'Support your team',
-                  emoji: '🤝'
+                  title: language === 'fr' ? 'Accompagner la transformation' : 'Guide the transformation',
+                  emoji: '🌱'
                   }
                 ].map((item, index) => (
                   <motion.div
@@ -178,10 +178,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center bg-neutral-900 text-white rounded-3xl p-12"
           >
-                                                            <p className="body-large opacity-90">
+                                                                        <p className="body-large opacity-90">
                   {language === 'fr' 
-                ? "Nous travaillons principalement avec des équipes qui cherchent à simplifier leurs opérations. Si vous êtes prêt à investir du temps pour améliorer vos processus, nous serions ravis de discuter avec vous."
-                : "We mainly work with teams looking to simplify their operations. If you're ready to invest time in improving your processes, we'd love to talk with you."
+                ? "Nous privilégions les partenariats avec des organisations visionnaires qui croient que l'excellence opérationnelle est la clé de leur succès futur. Si vous partagez cette vision et êtes prêt à investir dans la transformation de votre façon de travailler, nous aimerions explorer ensemble ce qui est possible."
+                : "We partner with visionary organizations that believe operational excellence is the key to their future success. If you share this vision and are ready to invest in transforming how you work, we'd love to explore together what's possible."
                   }
                 </p>
           </motion.div>
@@ -199,25 +199,25 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="inline-block bg-gradient-to-r from-cardinal-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'BÉNÉFICES ATTENDUS' : 'EXPECTED BENEFITS'}
+              {language === 'fr' ? 'L\'IMPACT QUE NOUS CRÉONS' : 'THE IMPACT WE CREATE'}
             </div>
             <h2 className="display-2 mb-8">
               {language === 'fr' ? (
                 <>
-                  Ce que nos clients<br />
-                  <span className="gradient-text">apprécient le plus</span>
+                  Des transformations<br />
+                  <span className="gradient-text">qui changent tout</span>
                 </>
               ) : (
                 <>
-                  What our clients<br />
-                  <span className="gradient-text">appreciate most</span>
+                  Transformations<br />
+                  <span className="gradient-text">that change everything</span>
                 </>
               )}
             </h2>
-                                                            <p className="body-large text-neutral-600 max-w-4xl mx-auto">
+                                                                        <p className="body-large text-neutral-600 max-w-4xl mx-auto">
               {language === 'fr'
-                ? "Nous nous concentrons sur des solutions pratiques qui simplifient vraiment votre quotidien. Notre objectif est de créer des systèmes que votre équipe peut facilement adopter et maintenir."
-                : "We focus on practical solutions that truly simplify your daily work. Our goal is to create systems that your team can easily adopt and maintain."
+                ? "Au-delà des gains d'efficacité, nous créons des expériences de travail qui redonnent du sens et de la joie au quotidien. Chaque solution que nous concevons vise à révéler le potentiel inexploité de votre équipe et à ouvrir de nouveaux horizons pour votre organisation."
+                : "Beyond efficiency gains, we create work experiences that bring meaning and joy back to daily operations. Every solution we design aims to unlock your team's untapped potential and open new horizons for your organization."
               }
             </p>
           </motion.div>
@@ -226,26 +226,26 @@ const Home: React.FC = () => {
             {[
               {
                 icon: Users,
-                title: language === 'fr' ? 'Plus de temps pour l\'essentiel' : 'More time for what matters',
+                title: language === 'fr' ? 'Libérer le potentiel créatif' : 'Unleash creative potential',
                 description: language === 'fr' 
-                  ? "En automatisant les tâches répétitives, votre équipe peut se concentrer sur des activités à plus forte valeur ajoutée. Vous retrouvez du temps pour innover et développer votre entreprise."
-                  : "By automating repetitive tasks, your team can focus on higher-value activities. You regain time to innovate and grow your business.",
+                  ? "Imaginez vos équipes enfin libérées des tâches fastidieuses, retrouvant leur énergie créatrice pour innover, résoudre des défis complexes et créer de la valeur authentique. C'est cette transformation que nous rendons possible."
+                  : "Imagine your teams finally freed from tedious tasks, rediscovering their creative energy to innovate, solve complex challenges, and create authentic value. This is the transformation we make possible.",
                 emoji: '🤝'
               },
               {
                 icon: Target,
-                title: language === 'fr' ? 'Approche progressive et transparente' : 'Progressive and transparent approach',
+                title: language === 'fr' ? 'Excellence opérationnelle fluide' : 'Seamless operational excellence',
                 description: language === 'fr' 
-                  ? "Nous privilégions une approche par étapes claires avec des résultats visibles rapidement. Vous savez toujours où nous en sommes et quelles sont les prochaines étapes."
-                  : "We favor a step-by-step approach with quickly visible results. You always know where we are and what the next steps are.",
+                  ? "Nous orchestrons une transformation en douceur où chaque amélioration s'intègre naturellement dans votre écosystème existant. Résultat : une efficacité remarquable sans disruption, une croissance qui semble presque magique."
+                  : "We orchestrate a smooth transformation where every improvement integrates naturally into your existing ecosystem. Result: remarkable efficiency without disruption, growth that feels almost magical.",
                 emoji: '📋'
               },
               {
                 icon: TrendingUp,
-                title: language === 'fr' ? 'Accompagnement vers l\'autonomie' : 'Support towards independence',
+                title: language === 'fr' ? 'Autonomie et maîtrise durable' : 'Lasting autonomy and mastery',
                 description: language === 'fr' 
-                  ? "Notre objectif est de rendre votre équipe autonome. Nous formons vos collaborateurs pour qu'ils puissent maintenir et faire évoluer les solutions mises en place."
-                  : "Our goal is to make your team autonomous. We train your colleagues so they can maintain and evolve the solutions we implement.",
+                  ? "Nous transférons plus que des outils : nous cultivons une culture d'innovation continue au sein de votre équipe. Nos collaborateurs deviennent les architectes de leurs propres améliorations, créant un cercle vertueux d'évolution permanente."
+                  : "We transfer more than tools: we cultivate a culture of continuous innovation within your team. Your colleagues become architects of their own improvements, creating a virtuous circle of permanent evolution.",
                 emoji: '📈'
               }
             ].map((item, index) => (
@@ -272,7 +272,7 @@ const Home: React.FC = () => {
             className="bg-gradient-to-r from-cardinal-600 to-purple-600 text-white rounded-3xl p-12 text-center"
           >
             <h3 className="heading-2 mb-6">
-              {language === 'fr' ? 'Notre approche différente' : 'Our different approach'}
+              {language === 'fr' ? 'Une collaboration qui fait la différence' : 'A collaboration that makes the difference'}
             </h3>
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
