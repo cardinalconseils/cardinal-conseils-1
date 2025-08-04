@@ -313,18 +313,18 @@ const Home: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="inline-block bg-cardinal-100 text-cardinal-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              {language === 'fr' ? 'QUI NOUS AIDONS' : 'WHO WE HELP'}
+              {language === 'fr' ? 'LEADERS VISIONNAIRES' : 'VISIONARY LEADERS'}
             </div>
             <h2 className="display-2 mb-8">
               {language === 'fr' ? (
                 <>
-                  Vous n'avez pas besoin d'un département—<br />
-                  <span className="gradient-text">vous avez besoin d'une équipe qui livre.</span>
+                  Nous créons des partenariats<br />
+                  <span className="gradient-text">avec des esprits audacieux</span>
                 </>
               ) : (
                 <>
-                  You don't need a department—<br />
-                  <span className="gradient-text">you need a team that delivers.</span>
+                  We create partnerships<br />
+                  <span className="gradient-text">with bold minds</span>
                 </>
               )}
             </h2>
@@ -338,33 +338,33 @@ const Home: React.FC = () => {
             className="mb-16"
           >
             <h3 className="heading-2 text-center mb-12">
-              {language === 'fr' ? 'Nous travaillons mieux avec :' : 'We work best with:'}
+              {language === 'fr' ? 'Les profils qui nous inspirent :' : 'The profiles that inspire us:'}
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   icon: Building2,
-                  title: language === 'fr' ? 'Entreprises moyennes' : 'Mid-sized companies',
-                  subtitle: language === 'fr' ? '(50–400 employés)' : '(50–400 employees)',
-                  emoji: '🏢'
+                  title: language === 'fr' ? 'Organisations Ambitieuses' : 'Ambitious Organizations',
+                  subtitle: language === 'fr' ? 'Prêtes à redéfinir leurs standards d\'excellence' : 'Ready to redefine their standards of excellence',
+                  emoji: '🏛️'
                 },
                 {
-                  icon: Clock,
-                  title: language === 'fr' ? 'Équipes enterrées' : 'Teams buried',
-                  subtitle: language === 'fr' ? 'dans les tâches récurrentes' : 'in recurring tasks',
-                  emoji: '⏰'
+                  icon: Lightbulb,
+                  title: language === 'fr' ? 'Esprits Innovateurs' : 'Innovative Minds',
+                  subtitle: language === 'fr' ? 'Qui voient au-delà des contraintes actuelles' : 'Who see beyond current constraints',
+                  emoji: '💡'
                 },
                 {
                   icon: Rocket,
-                  title: language === 'fr' ? 'Fondateurs' : 'Founders',
-                  subtitle: language === 'fr' ? 'qui valorisent la clarté et la vitesse' : 'who value clarity and speed',
-                  emoji: '🚀'
+                  title: language === 'fr' ? 'Leaders d\'Impact' : 'Impact Leaders',
+                  subtitle: language === 'fr' ? 'Obsédés par les résultats transformationnels' : 'Obsessed with transformational results',
+                  emoji: '🎯'
                 },
                 {
                   icon: Brain,
-                  title: language === 'fr' ? 'Opérateurs curieux' : 'Operators curious',
-                  subtitle: language === 'fr' ? 'de l\'IA, mais sceptiques du battage' : 'about AI, but skeptical of hype',
-                  emoji: '🤔'
+                  title: language === 'fr' ? 'Visionnaires Pragmatiques' : 'Pragmatic Visionaries',
+                  subtitle: language === 'fr' ? 'Curieux de l\'IA, exigeants sur l\'exécution' : 'Curious about AI, demanding on execution',
+                  emoji: '🧠'
                 }
               ].map((item, index) => (
                 <motion.div
@@ -392,8 +392,8 @@ const Home: React.FC = () => {
           >
             <p className="body-large text-cardinal-800">
               {language === 'fr' 
-                ? "Nous aussi, nous sommes en début d'étape—alors nous comprenons ce que signifie avancer avec soin, mais ne pas rester immobile."
-                : "We're early-stage too—so we understand what it means to move with care, but not stand still."
+                ? "Nous sommes à l'aube d'une nouvelle ère où l'audace et la précision se rencontrent. Si vous ressentez cette même énergie transformatrice et êtes prêt à sculpter l'avenir de votre organisation, nous parlons le même langage."
+                : "We're at the dawn of a new era where boldness meets precision. If you feel this same transformative energy and are ready to sculpt the future of your organization, we speak the same language."
               }
             </p>
           </motion.div>
