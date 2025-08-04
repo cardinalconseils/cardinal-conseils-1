@@ -24,6 +24,8 @@ const Contact: React.FC = () => {
     description: '',
     budget: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -34,8 +36,59 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    
+    // Create email content
+    const emailSubject = encodeURIComponent(
+      language === 'fr' 
+        ? `Nouvelle demande de contact - ${formData.company}` 
+        : `New contact request - ${formData.company}`
+    );
+    
+    const emailBody = encodeURIComponent(`
+${language === 'fr' ? 'Nouvelle demande de contact' : 'New contact request'}
+
+${language === 'fr' ? 'Informations du contact :' : 'Contact information:'}
+${language === 'fr' ? 'Nom complet :' : 'Full name:'} ${formData.firstName} ${formData.lastName}
+${language === 'fr' ? 'Entreprise :' : 'Company:'} ${formData.company}
+${language === 'fr' ? 'Secteur :' : 'Industry:'} ${formData.sector}
+${language === 'fr' ? 'Nombre d\'employés :' : 'Number of employees:'} ${formData.employees}
+${language === 'fr' ? 'Téléphone :' : 'Phone:'} ${formData.phone}
+${language === 'fr' ? 'Courriel :' : 'Email:'} ${formData.email}
+${language === 'fr' ? 'Budget approximatif :' : 'Approximate budget:'} ${formData.budget}
+
+${language === 'fr' ? 'Description du projet :' : 'Project description:'}
+${formData.description}
+    `);
+    
+    // Create mailto link
+    const mailtoLink = `mailto:info@cardinalconseils.com?subject=${emailSubject}&body=${emailBody}`;
+    
+    // Try to open email client
+    try {
+      window.location.href = mailtoLink;
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({
+          firstName: '',
+          lastName: '',
+          company: '',
+          sector: '',
+          employees: '',
+          phone: '',
+          email: '',
+          description: '',
+          budget: ''
+        });
+        setSubmitStatus('idle');
+      }, 3000);
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -47,12 +100,12 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       label: language === 'fr' ? 'Courriel' : 'Email',
-      value: 'contact@cardinalconseils.com'
+      value: 'info@cardinalconseils.com'
     },
     {
       icon: Phone,
       label: language === 'fr' ? 'Téléphone' : 'Phone',
-      value: '+1 (514) XXX-XXXX'
+      value: '514-622-6631'
     },
     {
       icon: Linkedin,
@@ -260,9 +313,43 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
                 
-                <button type="submit" className="mt-8 btn-primary w-full">
-                  <Send className="mr-2 h-5 w-5" />
-                  {language === 'fr' ? 'Envoyer le message' : 'Send message'}
+                {/* Submit Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p className="text-green-800 font-medium">
+                      {language === 'fr' 
+                        ? '✅ Votre message a été préparé et votre client de messagerie va s\'ouvrir.' 
+                        : '✅ Your message has been prepared and your email client will open.'}
+                    </p>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-800 font-medium">
+                      {language === 'fr' 
+                        ? '❌ Erreur lors de l\'ouverture du client de messagerie. Veuillez nous contacter directement à info@cardinalconseils.com' 
+                        : '❌ Error opening email client. Please contact us directly at info@cardinalconseils.com'}
+                    </p>
+                  </div>
+                )}
+                
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="mt-8 btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      {language === 'fr' ? 'Préparation...' : 'Preparing...'}
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      {language === 'fr' ? 'Envoyer le message' : 'Send message'}
+                    </>
+                  )}
                 </button>
               </form>
             </motion.div>

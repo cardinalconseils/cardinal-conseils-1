@@ -20,6 +20,7 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SEO from '../components/SEO';
 
 const Home: React.FC = () => {
   const { language } = useLanguage();
@@ -34,6 +35,18 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title={language === 'fr' ? 'Accueil' : 'Home'}
+        description={language === 'fr' 
+          ? 'Transformez votre organisation avec l\'automatisation intelligente. Libérez le potentiel créatif de vos équipes grâce à nos solutions d\'IA sur mesure et notre approche visionnaire.'
+          : 'Transform your organization with intelligent automation. Unleash your teams\' creative potential through our custom AI solutions and visionary approach.'
+        }
+        keywords={language === 'fr'
+          ? 'automatisation intelligente, transformation digitale, IA, excellence opérationnelle, leaders visionnaires, Montréal'
+          : 'intelligent automation, digital transformation, AI, operational excellence, visionary leaders, Montreal'
+        }
+        canonical="https://cardinalconseils.com/"
+      />
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 gradient-neutral noise" />
@@ -780,11 +793,11 @@ const Home: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="btn-primary bg-white text-cardinal-600 hover:bg-neutral-100 group">
+          <Link to="/contact" className="btn-primary bg-white text-cardinal-600 hover:bg-neutral-100 group">
               <Calendar className="mr-2 h-5 w-5" />
               {language === 'fr' ? 'Initier notre collaboration' : 'Initiate our collaboration'}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Link>
             <Link to="/contact" className="btn-secondary bg-white/10 text-white border-white/30 hover:bg-white/20 group">
               <MessageCircle className="mr-2 h-5 w-5" />
               {language === 'fr' ? 'Partager votre vision' : 'Share your vision'}
