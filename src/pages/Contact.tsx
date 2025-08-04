@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -34,58 +35,75 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Create email content
-    const emailSubject = encodeURIComponent(
-      language === 'fr' 
+    // EmailJS configuration (these will be environment variables)
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default_service';
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default_template';
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default_key';
+    
+    // Prepare template parameters for EmailJS
+    const templateParams = {
+      to_email: 'info@cardinalconseils.com',
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: formData.email,
+      subject: language === 'fr' 
         ? `Nouvelle demande de contact - ${formData.company}` 
-        : `New contact request - ${formData.company}`
-    );
+        : `New contact request - ${formData.company}`,
+      company: formData.company,
+      sector: formData.sector,
+      employees: formData.employees,
+      phone: formData.phone,
+      budget: formData.budget,
+      message: formData.description,
+      language: language,
+      // Additional context for the email template
+      full_name: `${formData.firstName} ${formData.lastName}`,
+      contact_email: formData.email,
+      project_description: formData.description,
+      estimated_budget: formData.budget
+    };
     
-    const emailBody = encodeURIComponent(`
-${language === 'fr' ? 'Nouvelle demande de contact' : 'New contact request'}
-
-${language === 'fr' ? 'Informations du contact :' : 'Contact information:'}
-${language === 'fr' ? 'Nom complet :' : 'Full name:'} ${formData.firstName} ${formData.lastName}
-${language === 'fr' ? 'Entreprise :' : 'Company:'} ${formData.company}
-${language === 'fr' ? 'Secteur :' : 'Industry:'} ${formData.sector}
-${language === 'fr' ? 'Nombre d\'employés :' : 'Number of employees:'} ${formData.employees}
-${language === 'fr' ? 'Téléphone :' : 'Phone:'} ${formData.phone}
-${language === 'fr' ? 'Courriel :' : 'Email:'} ${formData.email}
-${language === 'fr' ? 'Budget approximatif :' : 'Approximate budget:'} ${formData.budget}
-
-${language === 'fr' ? 'Description du projet :' : 'Project description:'}
-${formData.description}
-    `);
-    
-    // Create mailto link
-    const mailtoLink = `mailto:info@cardinalconseils.com?subject=${emailSubject}&body=${emailBody}`;
-    
-    // Try to open email client
     try {
-      window.location.href = mailtoLink;
-      setSubmitStatus('success');
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
       
-      // Reset form after successful submission
-      setTimeout(() => {
-        setFormData({
-          firstName: '',
-          lastName: '',
-          company: '',
-          sector: '',
-          employees: '',
-          phone: '',
-          email: '',
-          description: '',
-          budget: ''
-        });
-        setSubmitStatus('idle');
-      }, 3000);
+      if (response.status === 200) {
+        setSubmitStatus('success');
+        
+        // Reset form after successful submission
+        setTimeout(() => {
+          setFormData({
+            firstName: '',
+            lastName: '',
+            company: '',
+            sector: '',
+            employees: '',
+            phone: '',
+            email: '',
+            description: '',
+            budget: ''
+          });
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        throw new Error('Email sending failed');
+      }
     } catch (error) {
+      console.error('EmailJS error:', error);
       setSubmitStatus('error');
+      
+      // Reset error status after 10 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 10000);
     } finally {
       setIsSubmitting(false);
     }
@@ -318,8 +336,8 @@ ${formData.description}
                   <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
                     <p className="text-green-800 font-medium">
                       {language === 'fr' 
-                        ? '✅ Votre message a été préparé et votre client de messagerie va s\'ouvrir.' 
-                        : '✅ Your message has been prepared and your email client will open.'}
+                        ? '✅ Votre message a été envoyé avec succès ! Nous vous contacterons sous peu.' 
+                        : '✅ Your message has been sent successfully! We will contact you shortly.'}
                     </p>
                   </div>
                 )}
@@ -328,8 +346,8 @@ ${formData.description}
                   <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                     <p className="text-red-800 font-medium">
                       {language === 'fr' 
-                        ? '❌ Erreur lors de l\'ouverture du client de messagerie. Veuillez nous contacter directement à info@cardinalconseils.com' 
-                        : '❌ Error opening email client. Please contact us directly at info@cardinalconseils.com'}
+                        ? '❌ Erreur lors de l\'envoi du message. Veuillez réessayer ou nous contacter directement à info@cardinalconseils.com' 
+                        : '❌ Error sending message. Please try again or contact us directly at info@cardinalconseils.com'}
                     </p>
                   </div>
                 )}
@@ -342,7 +360,7 @@ ${formData.description}
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      {language === 'fr' ? 'Préparation...' : 'Preparing...'}
+                      {language === 'fr' ? 'Envoi en cours...' : 'Sending...'}
                     </>
                   ) : (
                     <>
