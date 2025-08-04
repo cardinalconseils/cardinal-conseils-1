@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
       // Determine API URL based on environment
       const apiUrl = import.meta.env.DEV 
         ? 'http://localhost:3001/api/contact'  // Development server
-        : '/api/contact';                      // Production (Vercel)
+        : 'https://cardinal-conseils-1-production.up.railway.app/api/contact';  // Production (Railway)
 
       // Send form data to our Resend API endpoint
       const response = await fetch(apiUrl, {
