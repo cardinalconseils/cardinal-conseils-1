@@ -756,38 +756,38 @@ const Home: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-            {language === 'fr' ? 'PRENONS CONTACT' : 'GET IN TOUCH'}
+            {language === 'fr' ? 'SCULPTONS L\'AVENIR ENSEMBLE' : 'SCULPT THE FUTURE TOGETHER'}
           </div>
           <h2 className="display-2 mb-8">
             {language === 'fr' ? (
               <>
-                Nous ne faisons que commencer—<br />
-                <span className="text-white/80">et vous aussi.</span>
+                Votre vision mérite<br />
+                <span className="text-white/80">un partenaire exceptionnel</span>
               </>
             ) : (
               <>
-                We're just getting started—<br />
-                <span className="text-white/80">and so are you.</span>
+                Your vision deserves<br />
+                <span className="text-white/80">an exceptional partner</span>
               </>
             )}
           </h2>
           
           <p className="body-large mb-12 max-w-3xl mx-auto opacity-90">
             {language === 'fr'
-              ? "Nous lançons avec un nombre limité de partenaires précoces. Si vous voulez être l'un des premiers à travailler avec une équipe d'automatisation sans charabia, parlons-nous."
-              : "We're launching with a limited number of early partners. If you want to be one of the first to work with a no-fluff automation team, let's talk."
+              ? "Nous sélectionnons avec soin un cercle restreint de leaders visionnaires pour co-créer l'avenir de l'automatisation intelligente. Si vous êtes prêt à transcender les limites actuelles de votre organisation et à écrire le prochain chapitre de votre succès, engageons cette conversation transformatrice."
+              : "We carefully select a select circle of visionary leaders to co-create the future of intelligent automation. If you're ready to transcend your organization's current limitations and write the next chapter of your success, let's begin this transformative conversation."
             }
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/contact" className="btn-primary bg-white text-cardinal-600 hover:bg-neutral-100 group">
+            <Link to="/contact" className="btn-primary bg-white text-cardinal-600 hover:bg-neutral-100 group">
               <Calendar className="mr-2 h-5 w-5" />
-              {language === 'fr' ? 'Réserver un appel découverte' : 'Book a discovery call'}
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Link>
+              {language === 'fr' ? 'Initier notre collaboration' : 'Initiate our collaboration'}
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
             <Link to="/contact" className="btn-secondary bg-white/10 text-white border-white/30 hover:bg-white/20 group">
               <MessageCircle className="mr-2 h-5 w-5" />
-              {language === 'fr' ? 'Ou envoyez-nous un message avec un processus que vous aimeriez simplifier' : 'Or send us a message with a process you\'d love to simplify'}
+              {language === 'fr' ? 'Partager votre vision' : 'Share your vision'}
               <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
