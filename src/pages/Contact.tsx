@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -39,43 +38,22 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // EmailJS configuration (these will be environment variables)
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default_service';
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default_template';
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default_key';
-    
-    // Prepare template parameters for EmailJS
-    const templateParams = {
-      to_email: 'info@cardinalconseils.com',
-      from_name: `${formData.firstName} ${formData.lastName}`,
-      from_email: formData.email,
-      subject: language === 'fr' 
-        ? `Nouvelle demande de contact - ${formData.company}` 
-        : `New contact request - ${formData.company}`,
-      company: formData.company,
-      sector: formData.sector,
-      employees: formData.employees,
-      phone: formData.phone,
-      budget: formData.budget,
-      message: formData.description,
-      language: language,
-      // Additional context for the email template
-      full_name: `${formData.firstName} ${formData.lastName}`,
-      contact_email: formData.email,
-      project_description: formData.description,
-      estimated_budget: formData.budget
-    };
-    
     try {
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        templateParams,
-        publicKey
-      );
-      
-      if (response.status === 200) {
+      // Send form data to our Resend API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          language: language
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setSubmitStatus('success');
         
         // Reset form after successful submission
@@ -94,18 +72,22 @@ const Contact: React.FC = () => {
           setSubmitStatus('idle');
         }, 5000);
       } else {
-        throw new Error('Email sending failed');
+        // Handle API errors with specific messages
+        setSubmitStatus('error');
+        console.error('Contact form error:', data.message || 'Unknown error');
       }
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Network error:', error);
       setSubmitStatus('error');
-      
-      // Reset error status after 10 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 10000);
     } finally {
       setIsSubmitting(false);
+      
+      // Reset error status after 10 seconds
+      if (submitStatus === 'error') {
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 10000);
+      }
     }
   };
 
