@@ -172,31 +172,31 @@ const Contact: React.FC = () => {
               )}
             </h1>
             
-            <p className="body-large text-neutral-100 max-w-2xl mb-8" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="body-large text-white max-w-2xl mb-8" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.9)' }}>
               {language === 'fr'
-                ? "Consultation initiale gratuite de 30 minutes pour comprendre votre contexte et identifier les opportunités d'automatisation."
-                : "Free 30-minute initial consultation to understand your context and identify automation opportunities."
+                ? "Consultation initiale gratuite de 30 minutes. Découvrez comment automatiser vos processus sans complexité technique."
+                : "Free 30-minute initial consultation. Discover how to automate your processes without technical complexity."
               }
             </p>
 
-            <div className="glass rounded-2xl p-6 mb-12 max-w-2xl">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-12 max-w-2xl border border-white/20 shadow-lg">
               <div className="grid md:grid-cols-3 gap-4 text-sm">
-                <div className="flex items-center space-x-2 text-white">
-                  <Clock className="h-4 w-4 text-neutral-300" />
+                <div className="flex items-center space-x-2 text-neutral-800">
+                  <Clock className="h-4 w-4 text-cardinal-600" />
                   <span>
-                    <strong>{language === 'fr' ? 'Durée :' : 'Duration:'}</strong> 30 min
+                    <strong className="text-neutral-900">{language === 'fr' ? 'Durée :' : 'Duration:'}</strong> 30 min
                   </span>
                 </div>
-                <div className="flex items-center space-x-2 text-white">
-                  <Calendar className="h-4 w-4 text-neutral-300" />
+                <div className="flex items-center space-x-2 text-neutral-800">
+                  <Calendar className="h-4 w-4 text-cardinal-600" />
                   <span>
-                    <strong>Format :</strong> {language === 'fr' ? 'Vidéo/Personne' : 'Video/In-person'}
+                    <strong className="text-neutral-900">Format :</strong> {language === 'fr' ? 'Vidéo/Personne' : 'Video/In-person'}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2 text-white">
-                  <Brain className="h-4 w-4 text-neutral-300" />
+                <div className="flex items-center space-x-2 text-neutral-800">
+                  <Brain className="h-4 w-4 text-cardinal-600" />
                   <span>
-                    <strong>{language === 'fr' ? 'Objectif :' : 'Goal:'}</strong> {language === 'fr' ? 'Opportunités' : 'Opportunities'}
+                    <strong className="text-neutral-900">{language === 'fr' ? 'Objectif :' : 'Goal:'}</strong> {language === 'fr' ? 'Solutions' : 'Solutions'}
                   </span>
                 </div>
               </div>
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
                 {language === 'fr' ? 'Commencer maintenant' : 'Get started now'}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="mailto:info@cardinalconseils.com" className="btn-secondary group bg-white/10 text-white border-white/20 hover:bg-white/20">
+              <a href="mailto:info@cardinalconseils.com" className="btn-secondary group bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm">
                 <Mail className="mr-2 h-5 w-5" />
                 {language === 'fr' ? 'Écrivez-nous directement' : 'Email us directly'}
                 <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
