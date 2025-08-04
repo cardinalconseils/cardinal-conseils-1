@@ -7,20 +7,20 @@ const ServicesHero: React.FC = () => {
 
   const content = {
     title: language === 'fr' 
-      ? "Ce Que Nous Faisons (et Faisons Bien)"
-      : "What We Do (and Do Well)",
+      ? "Excellence Opérationnelle Redéfinie"
+      : "Operational Excellence Redefined",
     subtitle: language === 'fr'
-      ? "Nous sommes une équipe compacte avec des compétences approfondies en automatisation, IA et réflexion systémique."
-      : "We're a lean team with deep skills in automation, AI, and systems thinking.",
+      ? "Nous transformons les fonctions critiques de votre entreprise grâce à l'automatisation intelligente et l'IA stratégique."
+      : "We transform your business's critical functions through intelligent automation and strategic AI.",
     description: language === 'fr'
-      ? "Notre rôle ? Nous assurer que votre entreprise fonctionne plus facilement—avec moins de pièces mobiles, moins de chaos et plus de clarté. Nous ne vendons pas d'outils. Nous construisons des solutions."
-      : "Our role? To make sure your business runs smoother—with fewer moving parts, less chaos, and more clarity. We don't sell tools. We build solutions.",
+      ? "De la vente à la finance, du marketing au développement produit, nous créons des écosystèmes technologiques qui libèrent votre potentiel organisationnel. Chaque solution que nous concevons amplifie l'impact humain et ouvre de nouveaux horizons de croissance."
+      : "From sales to finance, marketing to product development, we create technological ecosystems that unlock your organizational potential. Every solution we design amplifies human impact and opens new growth horizons.",
     cta: language === 'fr' 
-      ? "📅 Réserver un Appel Découverte"
-      : "📅 Book a Discovery Call",
+      ? "✨ Explorer Vos Possibilités"
+      : "✨ Explore Your Possibilities",
     ctaSubtext: language === 'fr'
-      ? "Discutons de vos processus et priorités"
-      : "Let's discuss your processes and priorities"
+      ? "Découvrons ensemble votre potentiel de transformation"
+      : "Let's discover your transformation potential together"
   };
 
   return (

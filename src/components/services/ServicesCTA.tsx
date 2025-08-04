@@ -17,39 +17,51 @@ const ServicesCTA: React.FC = () => {
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           {language === 'fr' 
-            ? 'Prêt à Transformer Votre Entreprise avec l\'IA ?'
-            : 'Ready to Transform Your Business with AI?'}
+            ? 'L\'Avenir Appartient aux Organisations Visionnaires'
+            : 'The Future Belongs to Visionary Organizations'}
         </h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
           {language === 'fr'
-            ? 'Le moment est venu de passer de la réflexion à l\'action. Chaque jour de retard permet à vos concurrents de creuser l\'écart technologique.'
-            : 'The time has come to move from reflection to action. Every day of delay allows your competitors to widen the technology gap.'}
+            ? 'Vous avez la vision. Nous avons l\'expertise pour la concrétiser. Ensemble, créons l\'écosystème technologique qui propulsera votre organisation vers de nouveaux sommets d\'excellence.'
+            : 'You have the vision. We have the expertise to make it real. Together, let\'s create the technological ecosystem that will propel your organization to new heights of excellence.'}
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto mb-8">
           <h3 className="text-2xl font-semibold mb-6">
-            {language === 'fr' ? 'Ce qui vous attend dans les 30 prochains jours :' : 'What awaits you in the next 30 days:'}
+            {language === 'fr' ? 'Votre Parcours de Transformation :' : 'Your Transformation Journey:'}
           </h3>
-          <div className="space-y-3 text-left">
-            <div className="flex items-start gap-3">
-              <span className="text-cardinal-200">1.</span>
-              <span>{language === 'fr' ? 'Semaine 1 : Diagnostic Flash personnalisé de votre entreprise' : 'Week 1: Personalized Flash Diagnosis of your business'}</span>
+          <div className="space-y-4 text-left">
+            <div className="flex items-start gap-4">
+              <span className="text-cardinal-200 text-2xl">🔍</span>
+              <div>
+                <div className="font-semibold">{language === 'fr' ? 'Diagnostic Visionnaire' : 'Visionary Diagnosis'}</div>
+                <span className="opacity-90">{language === 'fr' ? 'Révélation du potentiel caché de votre organisation' : 'Revealing your organization\'s hidden potential'}</span>
+              </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-cardinal-200">2.</span>
-              <span>{language === 'fr' ? 'Semaine 2-3 : Analyse approfondie et identification des opportunités prioritaires' : 'Week 2-3: In-depth analysis and identification of priority opportunities'}</span>
+            <div className="flex items-start gap-4">
+              <span className="text-cardinal-200 text-2xl">🎯</span>
+              <div>
+                <div className="font-semibold">{language === 'fr' ? 'Stratégie Sur Mesure' : 'Tailored Strategy'}</div>
+                <span className="opacity-90">{language === 'fr' ? 'Conception d\'un écosystème technologique unique' : 'Designing a unique technological ecosystem'}</span>
+              </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-cardinal-200">3.</span>
-              <span>{language === 'fr' ? 'Semaine 4 : Présentation des résultats et roadmap d\'action' : 'Week 4: Presentation of results and action roadmap'}</span>
+            <div className="flex items-start gap-4">
+              <span className="text-cardinal-200 text-2xl">🚀</span>
+              <div>
+                <div className="font-semibold">{language === 'fr' ? 'Implémentation d\'Excellence' : 'Excellence Implementation'}</div>
+                <span className="opacity-90">{language === 'fr' ? 'Transformation concrète avec résultats mesurables' : 'Concrete transformation with measurable results'}</span>
+              </div>
             </div>
-            <div className="flex items-start gap-3">
-              <span className="text-cardinal-200">✨</span>
-              <span>{language === 'fr' ? 'Bonus : Estimation ROI détaillée et plan de financement' : 'Bonus: Detailed ROI estimate and financing plan'}</span>
+            <div className="flex items-start gap-4">
+              <span className="text-cardinal-200 text-2xl">💎</span>
+              <div>
+                <div className="font-semibold">{language === 'fr' ? 'Autonomie Maîtrisée' : 'Mastered Autonomy'}</div>
+                <span className="opacity-90">{language === 'fr' ? 'Votre équipe devient experte de ses nouveaux pouvoirs' : 'Your team becomes expert in their new powers'}</span>
+              </div>
             </div>
           </div>
         </div>
         <a href="/contact" className="inline-flex items-center gap-2 bg-white text-cardinal-600 px-8 py-4 rounded-full font-semibold hover:bg-neutral-100 transition-colors">
-          {language === 'fr' ? 'Réserver votre consultation gratuite' : 'Book your free consultation'}
+          {language === 'fr' ? 'Commencer Votre Transformation' : 'Begin Your Transformation'}
           <ArrowRight className="h-5 w-5" />
         </a>
       </motion.div>
