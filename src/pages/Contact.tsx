@@ -9,7 +9,6 @@ import {
   Calendar,
   Send,
   ArrowRight,
-  ChevronRight,
   Brain
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -202,16 +201,11 @@ const Contact: React.FC = () => {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex justify-start">
               <a href="#contact-form" className="btn-primary group">
                 <Send className="mr-2 h-5 w-5" />
                 {language === 'fr' ? 'Commencer maintenant' : 'Get started now'}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href="mailto:info@cardinalconseils.com" className="btn-secondary group bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm">
-                <Mail className="mr-2 h-5 w-5" />
-                {language === 'fr' ? 'Écrivez-nous directement' : 'Email us directly'}
-                <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
           </motion.div>
