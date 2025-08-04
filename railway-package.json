@@ -1,0 +1,28 @@
+{
+  "name": "cardinal-conseils-api",
+  "version": "1.0.0",
+  "description": "Cardinal Conseils Contact Form API Server for Railway",
+  "main": "railway-server.cjs",
+  "scripts": {
+    "start": "node railway-server.cjs",
+    "dev": "node railway-server.cjs",
+    "test": "echo \"API Server Test\" && exit 0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "resend": "^4.7.0"
+  },
+  "keywords": [
+    "api",
+    "contact-form",
+    "email",
+    "resend",
+    "cardinal-conseils"
+  ],
+  "author": "Pierre-Marc Cardinal",
+  "license": "MIT"
+}
