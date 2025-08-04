@@ -1,13 +1,14 @@
-# Resend.com Setup Guide for Direct Email Sending
+# Resend.com Professional Email System
 
-The contact form uses Resend.com via a secure Vercel serverless function to send emails directly to `info@cardinalconseils.com`.
+A comprehensive email system using **React Email templates**, **Resend.com API**, and **CLI management tools** for professional email delivery.
 
-## Architecture
+## 🏗️ Architecture
 
-- **Frontend**: Contact form collects user data
-- **Vercel Function**: `api/contact.ts` handles email sending securely
-- **Resend**: Professional email service for delivery
-- **Security**: API key stays server-side, never exposed to frontend
+- **React Email Templates**: Professional HTML email generation
+- **Resend.com API**: Enterprise-grade email delivery service
+- **Vercel Serverless Function**: Secure server-side email handling
+- **TypeScript CLI**: Email testing, previewing, and management tools
+- **Lazy Initialization**: Graceful handling of missing configuration
 
 ## Setup Steps
 
@@ -174,24 +175,195 @@ This setup is more professional than EmailJS because:
 - No frontend dependencies
 - Better scalability
 
-## File Structure
+## 📁 Complete File Structure
 
 ```
 /
+├── emails/                         # Email system
+│   ├── templates/
+│   │   └── ContactForm.tsx         # React Email template
+│   └── utils/
+│       └── emailService.ts         # Email sending logic
 ├── api/
-│   └── contact.ts          # Vercel serverless function
+│   └── contact.ts                  # Vercel serverless function
+├── scripts/
+│   └── email-cli.ts                # CLI management tools
 ├── src/
 │   └── pages/
-│       └── Contact.tsx     # Contact form component
-├── .env.local              # Local environment variables
-└── RESEND_SETUP.md        # This documentation
+│       └── Contact.tsx             # Contact form component
+├── .env.local                      # Local environment variables
+├── package.json                    # NPM scripts for email CLI
+└── RESEND_SETUP.md                # This documentation
 ```
 
-## Next Steps
+## 🎯 CLI Email Management Tools
 
-1. ✅ Add your Resend API key to environment variables
-2. ✅ Verify your domain in Resend (optional but recommended)
-3. ✅ Test the contact form
-4. ✅ Monitor emails in Resend dashboard
+### Available Commands
 
-The contact form is now ready for professional email delivery! 🚀
+```bash
+# Email system information
+npm run email:info              # Show system overview and architecture
+
+# Configuration validation
+npm run email:validate          # Check if RESEND_API_KEY is properly set
+npm run email:status           # Check API connectivity and service status
+
+# Email preview generation
+npm run email:preview          # Generate HTML preview (English)
+npm run email:preview -- --language fr --output preview-fr.html
+
+# Email testing (requires valid API key)
+npm run email:test             # Send test email to info@cardinalconseils.com
+npm run email:test -- --email your@email.com --language fr
+```
+
+### CLI Features
+
+✅ **Configuration Validation**: Checks API key format and environment setup  
+✅ **Email Preview Generation**: Creates HTML files for browser testing  
+✅ **Live Email Testing**: Sends actual test emails with sample data  
+✅ **Bilingual Support**: Tests both French and English templates  
+✅ **Service Status Monitoring**: Checks API connectivity and configuration  
+✅ **Detailed Error Reporting**: Clear guidance for troubleshooting  
+
+## 📧 React Email Template System
+
+### Professional Template Features
+
+Our contact form emails use **React Email** for superior formatting:
+
+🎨 **Professional Design**: Cardinal Conseils branded HTML templates  
+📱 **Mobile Responsive**: Optimized for all email clients and devices  
+🔗 **Interactive Elements**: Clickable email addresses and phone numbers  
+🌐 **Bilingual Content**: Dynamic French/English content generation  
+📊 **Structured Layout**: Clean tables for contact information  
+💡 **Highlighted Sections**: Project descriptions with visual emphasis  
+🏷️ **Email Tagging**: Automatic categorization for better analytics  
+
+### Template Architecture
+
+```typescript
+// React Email Template (emails/templates/ContactForm.tsx)
+export const ContactFormEmail = ({ formData, language }) => (
+  <Html>
+    <Head />
+    <Body style={main}>
+      <Container style={container}>
+        {/* Professional header with logo */}
+        <Section style={header}>
+          <Img src="logo.png" alt="Cardinal Conseils" />
+          <Heading style={h1}>New Contact Request</Heading>
+        </Section>
+        
+        {/* Structured contact information */}
+        <Section style={section}>
+          <table style={infoTable}>
+            {/* Contact details with proper styling */}
+          </table>
+        </Section>
+        
+        {/* Project description with highlighting */}
+        <Section style={descriptionCard}>
+          {/* Formatted project description */}
+        </Section>
+      </Container>
+    </Body>
+  </Html>
+);
+```
+
+### Email Service Integration
+
+```typescript
+// Email Service (emails/utils/emailService.ts)
+export async function sendContactFormEmail(formData: ContactFormData) {
+  // Render React Email template to HTML
+  const htmlContent = await render(ContactFormEmail(formData));
+  
+  // Send via Resend with professional formatting
+  const emailResponse = await resend.emails.send({
+    from: 'Cardinal Conseils <contact@cardinalconseils.com>',
+    to: ['info@cardinalconseils.com'],
+    subject: `New contact request - ${formData.company}`,
+    html: htmlContent,
+    text: generatePlainTextEmail(formData),
+    replyTo: formData.email,
+    tags: [
+      { name: 'type', value: 'contact-form' },
+      { name: 'language', value: formData.language }
+    ]
+  });
+}
+```
+
+## 🚀 Quick Start Guide
+
+### 1. Environment Setup
+```bash
+# Create .env.local file with your Resend API key
+echo "RESEND_API_KEY=re_your_api_key_here" > .env.local
+
+# Validate configuration
+npm run email:validate
+```
+
+### 2. Test Email System
+```bash
+# Generate email preview
+npm run email:preview
+
+# Send test email (requires valid API key)
+npm run email:test
+
+# Check system status
+npm run email:status
+```
+
+### 3. Production Deployment
+```bash
+# Add RESEND_API_KEY to Vercel environment variables
+# Deploy with existing GitHub Actions workflow
+git push origin main
+```
+
+## 🎯 What's Included
+
+✅ **Professional React Email Templates** with Cardinal Conseils branding  
+✅ **Secure Serverless API** using Vercel functions  
+✅ **Comprehensive CLI Tools** for email management and testing  
+✅ **Bilingual Email Support** (French/English)  
+✅ **Error Handling & Validation** with detailed feedback  
+✅ **Email Analytics & Tagging** for better insights  
+✅ **Mobile-Responsive Design** for all email clients  
+✅ **Development & Production Ready** with proper environment handling  
+
+## 🔧 Advanced Features
+
+- **Lazy Initialization**: Graceful handling of missing API keys
+- **Email Tagging**: Automatic categorization for analytics
+- **Reply-To Configuration**: Easy client communication
+- **Plain Text Fallback**: Ensures compatibility with all email clients
+- **TypeScript Integration**: Full type safety throughout the system
+- **CLI Management**: Complete email system administration tools
+
+## 📊 Monitoring & Analytics
+
+Monitor your email delivery in the **Resend Dashboard**:
+- View all sent emails with delivery status
+- Track open rates and engagement metrics
+- Monitor bounce rates and deliverability
+- Review email analytics and performance
+- Manage domain reputation and verification
+
+## 🎉 Ready to Use!
+
+Your professional email system is now ready! The contact form will send beautifully formatted emails using your existing Resend.com account with:
+
+🎨 **Beautiful HTML templates** generated with React Email  
+📧 **Reliable delivery** through Resend's infrastructure  
+🔧 **Easy management** with built-in CLI tools  
+📱 **Mobile-optimized** emails for all devices  
+🌐 **Bilingual support** for French and English  
+⚡ **Serverless scalability** with Vercel functions  
+
+**Next step**: Add your Resend API key and start receiving professional contact form emails! 🚀
