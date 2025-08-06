@@ -36,23 +36,23 @@ const ServicesHero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="display-1 mb-8 text-white">
+          <h1 className="display-1 mb-8 text-white" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8)' }}>
             {language === 'fr' ? (
               <>
                 Excellence<br />
                 <span className="gradient-text">Opérationnelle</span><br />
-                <span className="text-neutral-300">Redéfinie</span>
+                <span className="text-neutral-100">Redéfinie</span>
               </>
             ) : (
               <>
                 Operational<br />
                 <span className="gradient-text">Excellence</span><br />
-                <span className="text-neutral-300">Redefined</span>
+                <span className="text-neutral-100">Redefined</span>
               </>
             )}
           </h1>
           
-          <p className="body-large text-neutral-200 max-w-2xl mb-12">
+          <p className="body-large text-white max-w-2xl mb-12" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             {language === 'fr'
               ? "Nous transformons les fonctions critiques de votre entreprise grâce à l'automatisation intelligente et l'IA stratégique. De la vente à la finance, créons des écosystèmes technologiques qui libèrent votre potentiel organisationnel."
               : "We transform your business's critical functions through intelligent automation and strategic AI. From sales to finance, we create technological ecosystems that unlock your organizational potential."
@@ -65,7 +65,7 @@ const ServicesHero: React.FC = () => {
               {language === 'fr' ? '✨ Explorer Vos Possibilités' : '✨ Explore Your Possibilities'}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#services-packages" className="btn-secondary group bg-white/10 text-white border-white/20 hover:bg-white/20">
+            <a href="#services-packages" className="btn-secondary group bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm">
               <Brain className="mr-2 h-5 w-5" />
               {language === 'fr' ? 'Découvrir nos services' : 'Discover our services'}
               <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
